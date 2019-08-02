@@ -7,12 +7,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E77BEEE-779
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsReceiver", "RequestsReceiver", "{3CA4851C-DA23-4063-8E43-AA611E28AD1A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRT.RequestReceiverService", "src\RequestsReceiver\RequestReceiverService\HRT.RequestReceiverService.csproj", "{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3CA4851C-DA23-4063-8E43-AA611E28AD1A} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
+		{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D} = {3CA4851C-DA23-4063-8E43-AA611E28AD1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4E269A7-C591-42D8-BA6B-2A8428507E74}
