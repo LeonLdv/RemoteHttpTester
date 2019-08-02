@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E77BEEE-7797-4B99-B6B5-57959D5F74D2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsReceiver", "RequestsReceiver", "{3CA4851C-DA23-4063-8E43-AA611E28AD1A}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3CA4851C-DA23-4063-8E43-AA611E28AD1A} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E4E269A7-C591-42D8-BA6B-2A8428507E74}
+	EndGlobalSection
+EndGlobal
