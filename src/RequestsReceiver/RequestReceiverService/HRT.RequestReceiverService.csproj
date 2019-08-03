@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Fp.MassTransit.RabbitMQ" Version="5.1.7" />
+    <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="5.1.5" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
