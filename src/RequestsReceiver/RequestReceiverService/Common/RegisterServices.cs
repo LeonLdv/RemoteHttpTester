@@ -1,4 +1,6 @@
 ﻿using System;
+using HRT.RequestReceiverService.Service;
+using HRT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -6,6 +8,13 @@ namespace HRT.RequestReceiverService.Common
 {
 	public static class RegisterServices
 	{
+
+		public static void RegisterCommon(this IServiceCollection services)
+		{
+			services.AddScoped<IRequestSenderServices, RequestSenderServices>();
+			
+		}
+
 		public static void RegisterMassTransit(this IServiceCollection services, AppSettings settings)
 		{
 			services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(

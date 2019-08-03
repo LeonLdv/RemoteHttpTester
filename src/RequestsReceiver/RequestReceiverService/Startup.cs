@@ -28,6 +28,8 @@ namespace HRT.RequestReceiverService
 
 			services.AddMvc();
 
+			services.RegisterCommon();
+
 			services.RegisterMassTransit(settings);
 
 			services.AddSwaggerGen(c =>
@@ -55,5 +57,7 @@ namespace HRT.RequestReceiverService
 
 			serviceProvider.StartBusControl();
 		}
+
+
 	}
 }

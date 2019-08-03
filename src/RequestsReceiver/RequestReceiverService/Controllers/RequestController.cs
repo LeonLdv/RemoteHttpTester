@@ -3,10 +3,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using HRT.RequestReceiverService.Common;
 using HRT.RequestReceiverService.Models;
+using HRT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Contracts = RHT.Shared.Contracts.ReguestTask;
+using RHT.Shared.Contracts.ReguestTask;
 
 namespace HRT.RequestReceiverService.Controllers
 {
@@ -14,15 +15,11 @@ namespace HRT.RequestReceiverService.Controllers
 	[ApiController]
 	public class RequestController : ControllerBase
 	{
-		private readonly IBusControl _busControl;
-		private readonly AppSettings _appSettings;
+		private readonly IRequestSenderServices _requestSenderServices;
 
-		public RequestController(
-			IBusControl busControl,
-			IOptionsSnapshot<AppSettings> appSettings)
+		public RequestController(IRequestSenderServices requestSenderServices)
 		{
-			_busControl = busControl;
-			_appSettings = appSettings.Value;
+			_requestSenderServices = requestSenderServices;
 		}
 
 		/// <summary>
@@ -41,9 +38,9 @@ namespace HRT.RequestReceiverService.Controllers
 				return new BadRequestObjectResult(ModelState);
 			}
 
-			await SendReguestTaskCommand(requestTaskModel);
+			await _requestSenderServices.SendReguestTaskCommand(requestTaskModel);
 
-			return Ok("Task has created successfully.");
+			return Ok($"{nameof(ReguestTaskCommand)} has sent successfully.");
 		}
 
 		private void ValidateModel(RequestTaskModel requestTaskModel)
@@ -54,17 +51,6 @@ namespace HRT.RequestReceiverService.Controllers
 			}
 		}
 
-		private async Task SendReguestTaskCommand(RequestTaskModel requestTaskModel)
-		{
-			var sendEndpoint = await _busControl.GetSendEndpoint(
-								  new Uri($"{_appSettings.ServiceBusConnection.Host}{_appSettings.ServiceBusQueues.RequestsExecutor}"));
-
-			await sendEndpoint.Send(new Contracts.ReguestTaskCommand
-			{
-				RequestQuantity = requestTaskModel.RequestQuantity,
-				EndPoints = requestTaskModel.EndPoints.Select(a => new Contracts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),
-				Message = requestTaskModel.Message
-			});
-		}
+	
 	}
 }
