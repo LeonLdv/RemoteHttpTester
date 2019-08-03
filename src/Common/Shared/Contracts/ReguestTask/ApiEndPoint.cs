@@ -1,4 +1,4 @@
-﻿namespace HRT.RequestReceiverService.Models
+﻿namespace RHT.Shared.Contracts.ReguestTask
 {
 	public sealed class ApiEndPoint
 	{
