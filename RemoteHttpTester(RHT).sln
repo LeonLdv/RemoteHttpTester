@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.Shared", "src\Common\Sh
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsExecutor", "RequestsExecutor", "{40B377C2-7569-405C-9612-CACFC37E6268}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutor.HttpProvider", "src\RequestsExecutor\HRT.RequestsExecutor.HttpProvider\RHT.RequestsExecutor.HttpProvider.csproj", "{F4632505-7A49-4190-AFEA-BB4A075ABAB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutor.HttpProvider", "src\RequestsExecutor\RHT.RequestsExecutor.HttpProvider\RHT.RequestsExecutor.HttpProvider.csproj", "{AB625E26-6835-448F-B383-796E306B0410}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutorService", "src\RequestsExecutor\HRT.RequestsExecutorService\RHT.RequestsExecutorService.csproj", "{28395188-8FCB-40A0-B746-8DF343028126}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutorService", "src\RequestsExecutor\RHT.RequestsExecutorService\RHT.RequestsExecutorService.csproj", "{618A3BFB-0E06-4BBE-876C-71D0B5443407}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutor.Infrastructure", "src\RequestsExecutor\HRT.RequestsExecutorService.Infrastructure\RHT.RequestsExecutor.Infrastructure.csproj", "{08D6F433-FB9B-45DC-9355-28C5D524206F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutor.Infrastructure", "src\RequestsExecutor\RHT.RequestsExecutorService.Infrastructure\RHT.RequestsExecutor.Infrastructure.csproj", "{0EC51926-49E1-4F7B-A160-B5B663E69B67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,18 +35,18 @@ Global
 		{04782B13-7EE2-4F87-AA3B-C2C6662D4938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04782B13-7EE2-4F87-AA3B-C2C6662D4938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04782B13-7EE2-4F87-AA3B-C2C6662D4938}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F4632505-7A49-4190-AFEA-BB4A075ABAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F4632505-7A49-4190-AFEA-BB4A075ABAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F4632505-7A49-4190-AFEA-BB4A075ABAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F4632505-7A49-4190-AFEA-BB4A075ABAB5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{28395188-8FCB-40A0-B746-8DF343028126}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{28395188-8FCB-40A0-B746-8DF343028126}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{28395188-8FCB-40A0-B746-8DF343028126}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{28395188-8FCB-40A0-B746-8DF343028126}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08D6F433-FB9B-45DC-9355-28C5D524206F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08D6F433-FB9B-45DC-9355-28C5D524206F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08D6F433-FB9B-45DC-9355-28C5D524206F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08D6F433-FB9B-45DC-9355-28C5D524206F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB625E26-6835-448F-B383-796E306B0410}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB625E26-6835-448F-B383-796E306B0410}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB625E26-6835-448F-B383-796E306B0410}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB625E26-6835-448F-B383-796E306B0410}.Release|Any CPU.Build.0 = Release|Any CPU
+		{618A3BFB-0E06-4BBE-876C-71D0B5443407}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{618A3BFB-0E06-4BBE-876C-71D0B5443407}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{618A3BFB-0E06-4BBE-876C-71D0B5443407}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{618A3BFB-0E06-4BBE-876C-71D0B5443407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC51926-49E1-4F7B-A160-B5B663E69B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC51926-49E1-4F7B-A160-B5B663E69B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC51926-49E1-4F7B-A160-B5B663E69B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC51926-49E1-4F7B-A160-B5B663E69B67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,9 +57,9 @@ Global
 		{006A5FB8-0BBC-4B03-BDAF-72EE324DC45F} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
 		{04782B13-7EE2-4F87-AA3B-C2C6662D4938} = {006A5FB8-0BBC-4B03-BDAF-72EE324DC45F}
 		{40B377C2-7569-405C-9612-CACFC37E6268} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
-		{F4632505-7A49-4190-AFEA-BB4A075ABAB5} = {40B377C2-7569-405C-9612-CACFC37E6268}
-		{28395188-8FCB-40A0-B746-8DF343028126} = {40B377C2-7569-405C-9612-CACFC37E6268}
-		{08D6F433-FB9B-45DC-9355-28C5D524206F} = {40B377C2-7569-405C-9612-CACFC37E6268}
+		{AB625E26-6835-448F-B383-796E306B0410} = {40B377C2-7569-405C-9612-CACFC37E6268}
+		{618A3BFB-0E06-4BBE-876C-71D0B5443407} = {40B377C2-7569-405C-9612-CACFC37E6268}
+		{0EC51926-49E1-4F7B-A160-B5B663E69B67} = {40B377C2-7569-405C-9612-CACFC37E6268}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4E269A7-C591-42D8-BA6B-2A8428507E74}

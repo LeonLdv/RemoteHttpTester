@@ -15,8 +15,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Shared\RHT.Shared.csproj" />
-    <ProjectReference Include="..\HRT.RequestsExecutor.HttpProvider\RHT.RequestsExecutor.HttpProvider.csproj" />
-    <ProjectReference Include="..\HRT.RequestsExecutorService.Infrastructure\RHT.RequestsExecutor.Infrastructure.csproj" />
+    <ProjectReference Include="..\RHT.RequestsExecutor.HttpProvider\RHT.RequestsExecutor.HttpProvider.csproj" />
+    <ProjectReference Include="..\RHT.RequestsExecutorService.Infrastructure\RHT.RequestsExecutor.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
