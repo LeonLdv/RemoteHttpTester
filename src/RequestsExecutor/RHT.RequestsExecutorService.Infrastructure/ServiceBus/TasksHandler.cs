@@ -10,12 +10,12 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 	/// <summary>
 	/// Getting tasks and start task executing
 	/// </summary>
-	internal sealed class TasksHandler : IConsumer<IRequestTaskCommand>
+	internal sealed class RequestTaskHandler : IConsumer<IRequestTaskCommand>
 	{
 		private readonly IListenerExternalApi _listenerExternalApi;
 		private readonly ILogger _logger;
 
-		public TasksHandler(IListenerExternalApi listenerExternalApi, ILogger<TasksHandler> logger)
+		public RequestTaskHandler(IListenerExternalApi listenerExternalApi, ILogger<RequestTaskHandler> logger)
 		{
 			_listenerExternalApi = listenerExternalApi;
 			_logger = logger;
@@ -31,9 +31,9 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 				throw new NullReferenceException();
 			}
 
-			await _listenerExternalApi.ExecuteTestApi(taskCommand);
+			await _listenerExternalApi.ExecuteRequests(taskCommand);
 
-			_logger.LogInformation("Task command created.");
+			_logger.LogInformation("RequestTaskCommand command created.");
 		}
 	}
 }

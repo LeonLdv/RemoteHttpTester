@@ -18,7 +18,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 	{
 		private readonly ITransportProvider<HttpStatusCode> _httpTransport;
 		private readonly IBusControl _serviceBus;
-		private readonly ILogger _logger;
+		private readonly ILogger<ListenerExternalApi> _logger;
 
 		public ListenerExternalApi(ITransportProvider<HttpStatusCode> testExternalApiProvider,
 								   IBusControl serviceBus,
@@ -29,7 +29,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 			_logger = logger;
 		}
 
-		public async Task ExecuteTestApi(IRequestTaskCommand taskCommand)
+		public async Task ExecuteRequests(IRequestTaskCommand taskCommand)
 		{
 			List<HttpStatusCode> statusCodeList = new List<HttpStatusCode>();
 
@@ -42,18 +42,14 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 				statusCodeTasks.Add(_httpTransport.SendRequestExternalApiAsync(taskCommand.Message, apiEndPointUrl));
 			}
 
-			var statusCodes = await Task.WhenAll(statusCodeTasks);/*.ContinueWith(ContinuationAction, TaskContinuationOptions.OnlyOnFaulted)*///;
+			var statusCodes = await Task.WhenAll(statusCodeTasks);
 
 			statusCodeList.AddRange(statusCodes);
 
-			//The event about executing all requests. Passing statistic of requests.
-			//await _serviceBus.Publish(new TaskExecutedEvent() { Statistic = GetStatistic(statusCodeList)});
+			//The event about executing all requests.Passing statistic of requests.
+			await _serviceBus.Publish(new TaskExecutedEvent() { Statistic = GetStatistic(statusCodeList)});
 		}
 
-		private void ContinuationAction(Task<HttpStatusCode[]> obj)
-		{
-			throw new NotImplementedException();
-		}
 
 		/// <summary>
 		/// Getting Url endpoints randomly.
@@ -63,7 +59,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 		/// <returns></returns>
 		private string GetRendomUrl(IEnumerable<ApiEndPoint> endPoints, Random random)
 		{
-			int indexEndPoints = random.Next(0, endPoints.Count());
+			var indexEndPoints = random.Next(0, endPoints.Count());
 
 			return endPoints.ToArray()[indexEndPoints].EndpointUrl;
 		}
@@ -73,11 +69,11 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 		/// </summary>
 		/// <param name="httpStatusCodes">Status codes</param>
 		/// <returns>TaskStatistic</returns>
-		private IEnumerable<TaskStatistic> GetStatistic(ICollection<HttpStatusCode> httpStatusCodes)
+		private IEnumerable<RequestStatistic> GetStatistic(ICollection<HttpStatusCode> httpStatusCodes)
 		{
 			return (from httpStatusCode in httpStatusCodes
 					group httpStatusCode by httpStatusCode into statusCode
-					select new TaskStatistic()
+					select new RequestStatistic()
 					{
 						StatusCode = statusCode.Key,
 						StatusCodesQuantity = statusCode.Count()

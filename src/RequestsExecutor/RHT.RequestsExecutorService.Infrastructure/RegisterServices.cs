@@ -20,7 +20,7 @@ namespace RHT.RequestsExecutor.Infrastructure
 		{
 			services.AddMassTransit(x =>
 			{
-				x.AddConsumer<TasksHandler>();
+				x.AddConsumer<RequestTaskHandler>();
 			});
 
 			services.AddSingleton(provider => Bus.Factory.CreateUsingRabbitMq(

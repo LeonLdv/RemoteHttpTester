@@ -2,7 +2,7 @@
 
 namespace RHT.Shared.Contracts.RequestStatistic
 {
-	public sealed class TaskStatistic
+	public sealed class RequestStatistic
 	{
 		public HttpStatusCode StatusCode { get; set; }
 
