@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using RHT.RequestReceiverService.Common;
-using RHT.RequestReceiverService.Models;
 using MassTransit;
 using Microsoft.Extensions.Options;
+using RHT.RequestReceiverService.Common;
+using RHT.RequestReceiverService.Models;
 using Contracts = RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Service.RequestSenderServices
@@ -22,7 +21,7 @@ namespace RHT.RequestReceiverService.Service.RequestSenderServices
 			_busControl = busControl;
 			_appSettings = appSettings.Value;
 		}
-		
+
 		public async Task SendReguestTaskCommand(RequestTaskModel requestTaskModel)
 		{
 			var sendEndpoint = await _busControl.GetSendEndpoint(
@@ -35,7 +34,5 @@ namespace RHT.RequestReceiverService.Service.RequestSenderServices
 				Message = requestTaskModel.Message
 			});
 		}
-
-
 	}
 }

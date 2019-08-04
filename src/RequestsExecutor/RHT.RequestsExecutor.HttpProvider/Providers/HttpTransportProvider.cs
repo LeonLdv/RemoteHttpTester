@@ -1,14 +1,12 @@
-﻿using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
-using RHT.RequestsExecutor.Infrastructure;
-using RHT.RequestsExecutor.Infrastructure.Providers;
-using System;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-
-
+using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
+using RHT.RequestsExecutor.Infrastructure;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 
 namespace RHT.RequestsExecutor.HttpProvider.Providers
 {
@@ -30,7 +28,6 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 		{
 			try
 			{
-
 				Uri path = new Uri($"{endPointUrl}{_appSettings.ExternalApiAction}");
 
 				using (HttpClient client = _httpClientFactory.CreateClient())
@@ -42,7 +39,6 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 					HttpResponseMessage response = await client.PostAsync(path, httpContent);
 					return response.StatusCode;
 				}
-
 			}
 			catch
 			{
@@ -51,4 +47,3 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 		}
 	}
 }
-

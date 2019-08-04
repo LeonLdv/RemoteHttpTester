@@ -1,12 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using RHT.RequestReceiverService.Common;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using RHT.RequestReceiverService.Models;
 using RHT.RequestReceiverService.Service.RequestSenderServices;
-using MassTransit;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Options;
 using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Controllers
@@ -20,7 +15,6 @@ namespace RHT.RequestReceiverService.Controllers
 		public RequestController(IRequestSenderServices requestSenderServices)
 		{
 			_requestSenderServices = requestSenderServices;
-
 		}
 
 		/// <summary>
@@ -51,7 +45,5 @@ namespace RHT.RequestReceiverService.Controllers
 				ModelState.AddModelError("error", "Incorrect data.");
 			}
 		}
-
-	
 	}
 }

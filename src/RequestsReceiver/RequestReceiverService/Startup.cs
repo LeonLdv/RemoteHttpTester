@@ -1,9 +1,9 @@
 ﻿using System;
-using RHT.RequestReceiverService.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using RHT.RequestReceiverService.Common;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace RHT.RequestReceiverService
@@ -57,7 +57,5 @@ namespace RHT.RequestReceiverService
 
 			serviceProvider.StartBusControl();
 		}
-
-
 	}
 }

@@ -1,18 +1,15 @@
 ﻿using System;
-using RHT.RequestReceiverService.Service;
-using RHT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
+using RHT.RequestReceiverService.Service.RequestSenderServices;
 
 namespace RHT.RequestReceiverService.Common
 {
 	public static class RegisterServices
 	{
-
 		public static void RegisterCommon(this IServiceCollection services)
 		{
 			services.AddScoped<IRequestSenderServices, RequestSenderServices>();
-			
 		}
 
 		public static void RegisterMassTransit(this IServiceCollection services, AppSettings settings)

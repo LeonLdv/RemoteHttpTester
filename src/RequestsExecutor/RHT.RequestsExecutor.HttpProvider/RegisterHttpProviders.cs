@@ -1,17 +1,17 @@
-﻿using RHT.RequestsExecutor.HttpProvider.Providers;
-using RHT.RequestsExecutor.Infrastructure.Providers;
+﻿using System.Net;
 using Microsoft.Extensions.DependencyInjection;
-using System.Net;
+using RHT.RequestsExecutor.HttpProvider.Providers;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 
 namespace RHT.RequestsExecutor.HttpProvider
 {
-    public static class RegisterHttpProviders
-    {
-        public static IServiceCollection RegisterHttpProvider(this IServiceCollection services)
-        {
-            services.AddTransient<ITransportProvider<HttpStatusCode>, HttpTransportProvider>();
+	public static class RegisterHttpProviders
+	{
+		public static IServiceCollection RegisterHttpProvider(this IServiceCollection services)
+		{
+			services.AddTransient<ITransportProvider<HttpStatusCode>, HttpTransportProvider>();
 
-            return services;
-        }
-    }
+			return services;
+		}
+	}
 }
