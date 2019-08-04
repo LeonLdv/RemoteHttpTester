@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace RHT.Shared.Contracts.ReguestTask
+namespace RHT.Shared.Contracts.RequestTask
 {
-	public sealed class ReguestTaskCommand : IReguestTaskCommand
+	public sealed class RequestTaskCommand : IRequestTaskCommand
 	{
 		public int RequestQuantity { get; set; }
 

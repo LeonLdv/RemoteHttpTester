@@ -1,4 +1,4 @@
-﻿namespace RHT.Shared.Contracts.ReguestTask
+﻿namespace RHT.Shared.Contracts.RequestTask
 {
 	public sealed class ApiEndPoint
 	{

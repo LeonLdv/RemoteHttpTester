@@ -6,7 +6,7 @@ using HRT.RequestReceiverService.Common;
 using HRT.RequestReceiverService.Models;
 using MassTransit;
 using Microsoft.Extensions.Options;
-using Contracts = RHT.Shared.Contracts.ReguestTask;
+using Contracts = RHT.Shared.Contracts.RequestTask;
 
 namespace HRT.RequestReceiverService.Service.RequestSenderServices
 {
@@ -28,7 +28,7 @@ namespace HRT.RequestReceiverService.Service.RequestSenderServices
 			var sendEndpoint = await _busControl.GetSendEndpoint(
 								  new Uri($"{_appSettings.ServiceBusConnection.Host}{_appSettings.ServiceBusQueues.RequestsExecutor}"));
 
-			await sendEndpoint.Send(new Contracts.ReguestTaskCommand
+			await sendEndpoint.Send(new Contracts.RequestTaskCommand
 			{
 				RequestQuantity = requestTaskModel.RequestQuantity,
 				EndPoints = requestTaskModel.EndPoints.Select(a => new Contracts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),

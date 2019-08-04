@@ -7,7 +7,7 @@ using HRT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using RHT.Shared.Contracts.ReguestTask;
+using RHT.Shared.Contracts.RequestTask;
 
 namespace HRT.RequestReceiverService.Controllers
 {
@@ -20,6 +20,7 @@ namespace HRT.RequestReceiverService.Controllers
 		public RequestController(IRequestSenderServices requestSenderServices)
 		{
 			_requestSenderServices = requestSenderServices;
+
 		}
 
 		/// <summary>
@@ -40,7 +41,7 @@ namespace HRT.RequestReceiverService.Controllers
 
 			await _requestSenderServices.SendReguestTaskCommand(requestTaskModel);
 
-			return Ok($"{nameof(ReguestTaskCommand)} has sent successfully.");
+			return Ok($"{nameof(RequestTaskCommand)} has sent successfully.");
 		}
 
 		private void ValidateModel(RequestTaskModel requestTaskModel)
