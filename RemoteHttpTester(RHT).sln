@@ -21,6 +21,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutorService
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestsExecutor.Infrastructure", "src\RequestsExecutor\RHT.RequestsExecutorService.Infrastructure\RHT.RequestsExecutor.Infrastructure.csproj", "{0EC51926-49E1-4F7B-A160-B5B663E69B67}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solutionItems", "solutionItems", "{3EDA6F28-67EA-4164-8FF5-6E46B18DB0B8}"
+	ProjectSection(SolutionItems) = preProject
+		solutionItems\CodeAnalysis.ruleset = solutionItems\CodeAnalysis.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

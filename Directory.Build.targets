@@ -1,0 +1,13 @@
+<Project>
+
+  <!-- StypeCop Analyser -->
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(MSBuildThisFileDirectory)\solutionItems\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+	<TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2" />
+  </ItemGroup>
+  
+</Project>
