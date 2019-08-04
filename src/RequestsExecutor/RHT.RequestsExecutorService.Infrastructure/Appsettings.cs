@@ -6,9 +6,16 @@
         public string ExternalApiAction { get; set; }
         public CustomHeader CustomHeader { get; set; }
         public RabbitMqSettings RabbitMqSettings { get; set; }
+        public ServiceBusQueues ServiceBusQueues { get; set; }
     }
 
-    public class ServiceBusConnection
+    public sealed class ServiceBusQueues
+    {
+	    public string RequestsExecutor { get; set; }
+    }
+
+
+	public class ServiceBusConnection
     {
         public string Host { get; set; }
         public string UserName { get; set; }

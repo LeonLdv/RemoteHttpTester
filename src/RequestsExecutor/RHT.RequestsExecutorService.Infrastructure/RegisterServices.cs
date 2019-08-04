@@ -33,7 +33,7 @@ namespace RHT.RequestsExecutor.Infrastructure
                             hostConfigurator.Username(settings.ServiceBusConnection.UserName);
                             hostConfigurator.Password(settings.ServiceBusConnection.Password);
                         });
-                    configurator.ReceiveEndpoint(rabbitMqHost, ServiceBusQueues.RequestGenerator, endpointConfigurator =>
+                    configurator.ReceiveEndpoint(rabbitMqHost, settings.ServiceBusQueues.RequestsExecutor, endpointConfigurator =>
                     {
                         endpointConfigurator.LoadFrom(provider);
                         endpointConfigurator.PrefetchCount = settings.RabbitMqSettings.PrefetchCount;
