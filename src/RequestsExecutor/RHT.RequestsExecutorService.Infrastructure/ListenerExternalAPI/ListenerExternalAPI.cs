@@ -18,24 +18,22 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 	{
 		private readonly ITransportProvider<HttpStatusCode> _httpTransport;
 		private readonly IBusControl _serviceBus;
-		private readonly ILogger<ListenerExternalApi> _logger;
 
 		public ListenerExternalApi(
 			ITransportProvider<HttpStatusCode> testExternalApiProvider,
-			IBusControl serviceBus,
-			ILogger<ListenerExternalApi> logger)
+			IBusControl serviceBus)
 		{
 			_httpTransport = testExternalApiProvider;
 			_serviceBus = serviceBus;
-			_logger = logger;
 		}
 
 		public async Task ExecuteRequests(IRequestTaskCommand taskCommand)
 		{
-			List<HttpStatusCode> statusCodeList = new List<HttpStatusCode>();
+			var statusCodeList = new List<HttpStatusCode>();
 
 			var random = new Random();
-			List<Task<HttpStatusCode>> statusCodeTasks = new List<Task<HttpStatusCode>>();
+
+			var statusCodeTasks = new List<Task<HttpStatusCode>>();
 
 			for (int i = 0; i < taskCommand.RequestQuantity; i++)
 			{
