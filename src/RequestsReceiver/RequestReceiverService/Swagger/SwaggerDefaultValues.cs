@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.ApiExplorer;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
-using System.Linq;
 
 namespace RHT.RequestReceiverService.Swagger
 {
-
 	/// <summary>
 	/// Represents the Swagger/Swashbuckle operation filter used to document the implicit API version parameter.
 	/// </summary>

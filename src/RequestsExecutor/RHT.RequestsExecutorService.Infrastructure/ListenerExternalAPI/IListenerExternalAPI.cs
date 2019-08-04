@@ -9,8 +9,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 		/// Sending a requests to external API using randomly URL
 		/// </summary>
 		/// <param name="taskCommand">Task for processing  </param>
-		/// <returns></returns>
+		/// <returns>Task</returns>
 		Task ExecuteRequests(IRequestTaskCommand taskCommand);
-		
 	}
 }

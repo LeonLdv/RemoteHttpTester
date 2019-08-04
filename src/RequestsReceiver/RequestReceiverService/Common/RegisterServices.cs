@@ -23,7 +23,6 @@ namespace RHT.RequestReceiverService.Common
 				options.ReportApiVersions = true;
 				options.AssumeDefaultVersionWhenUnspecified = true;
 				options.DefaultApiVersion = new ApiVersion(1, 0);
-				
 			});
 
 			services.AddVersionedApiExplorer(
@@ -59,7 +58,7 @@ namespace RHT.RequestReceiverService.Common
 			services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
 		}
 
-		public static void StartBusControl(this IServiceProvider serviceProvider)//// TO DO Move to here 
+		public static void StartBusControl(this IServiceProvider serviceProvider)//// TO DO Move to here
 		{
 			var serviceBus = serviceProvider.GetRequiredService<IBusControl>();
 			serviceBus.Start();

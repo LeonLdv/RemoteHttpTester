@@ -14,8 +14,9 @@
     <Rule Id="SA1123" Action="None" />
     <Rule Id="SA1008" Action="None" />
     <Rule Id="SA1009" Action="None" />
-<Rule Id="SA1309" Action="None" />
-
+	<Rule Id="SA1309" Action="None" />
+	<Rule Id="SA1101" Action="None" />
+	
     <Rule Id="xUnit2013" Action="None" />
 	<Rule Id="xUnit2004" Action="None" />
   </Rules>

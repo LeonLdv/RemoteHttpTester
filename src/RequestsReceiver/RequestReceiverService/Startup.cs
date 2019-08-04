@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RHT.RequestReceiverService.Common;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace RHT.RequestReceiverService
 {
@@ -33,7 +32,6 @@ namespace RHT.RequestReceiverService
 			services.RegisterSwagger();
 
 			services.RegisterMassTransit(settings);
-			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +45,7 @@ namespace RHT.RequestReceiverService
 			{
 				app.UseDeveloperExceptionPage();
 			}
-			
+
 			app.UseMvc();
 
 			app.UseSwagger();

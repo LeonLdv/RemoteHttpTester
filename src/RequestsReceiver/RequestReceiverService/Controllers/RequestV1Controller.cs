@@ -6,7 +6,6 @@ using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Controllers
 {
-
 	[Route("api/v{version:apiVersion}/Request")]
 	[ApiVersion("1.0")]
 	[ApiController]
@@ -22,8 +21,8 @@ namespace RHT.RequestReceiverService.Controllers
 		/// <summary>
 		/// Sending the task to the queue service bus.
 		/// </summary>
-		/// <param name="requestTaskModel"></param>
-		/// <returns></returns>
+		/// <param name="requestTaskModel"> Requests model</param>
+		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>
 		[HttpPost]
 		[Route("SendRequestTask")]
 		public async Task<IActionResult> Post([FromBody] RequestTaskModel requestTaskModel)

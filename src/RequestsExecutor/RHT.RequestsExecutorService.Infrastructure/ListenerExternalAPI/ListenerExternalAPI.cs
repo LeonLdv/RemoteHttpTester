@@ -12,7 +12,7 @@ using RHT.Shared.Contracts.RequestTask;
 namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 {
 	/// <summary>
-	/// Sending a requests to external Api.
+	/// Sending a requests to external API.
 	/// </summary>
 	public sealed class ListenerExternalApi : IListenerExternalApi
 	{
@@ -20,9 +20,10 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 		private readonly IBusControl _serviceBus;
 		private readonly ILogger<ListenerExternalApi> _logger;
 
-		public ListenerExternalApi(ITransportProvider<HttpStatusCode> testExternalApiProvider,
-								   IBusControl serviceBus,
-								   ILogger<ListenerExternalApi> logger)
+		public ListenerExternalApi(
+			ITransportProvider<HttpStatusCode> testExternalApiProvider,
+			IBusControl serviceBus,
+			ILogger<ListenerExternalApi> logger)
 		{
 			_httpTransport = testExternalApiProvider;
 			_serviceBus = serviceBus;
@@ -46,17 +47,16 @@ namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 
 			statusCodeList.AddRange(statusCodes);
 
-			//The event about executing all requests.Passing statistic of requests.
-			await _serviceBus.Publish(new TaskExecutedEvent() { Statistic = GetStatistic(statusCodeList)});
+			// The event about executing all requests.Passing statistic of requests.
+			await _serviceBus.Publish(new TaskExecutedEvent() { Statistic = GetStatistic(statusCodeList) });
 		}
-
 
 		/// <summary>
 		/// Getting Url endpoints randomly.
 		/// </summary>
 		/// <param name="endPoints">Url endpoints</param>
 		/// <param name="random">Random</param>
-		/// <returns></returns>
+		/// <returns>Rendom URL </returns>
 		private string GetRendomUrl(IEnumerable<ApiEndPoint> endPoints, Random random)
 		{
 			var indexEndPoints = random.Next(0, endPoints.Count());

@@ -10,35 +10,35 @@ namespace RHT.RequestReceiverService.Models
 	public sealed class RequestTaskModel : IValidatableObject
 	{
 		/// <summary>
-		/// Quantity requests to external Api
+		/// Gets or sets quantity requests to external Api
 		/// </summary>
 		public int RequestQuantity { get; set; }
 
 		/// <summary>
-		/// URLs  external API
+		/// Gets or setsGets or sets URLs external API
 		/// </summary>
 		public IEnumerable<ApiEndPoint> EndPoints { get; set; }
 
 		/// <summary>
-		/// Message body to external API
+		/// Gets or sets message body to external API
 		/// </summary>
 		public string Message { get; set; }
 
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{
-			if (!EndPoints.Any())
+			if (!this.EndPoints.Any())
 			{
 				yield return new ValidationResult("Your order must contain at least one item.");
 			}
 
-			if (RequestQuantity == 0)
+			if (this.RequestQuantity == 0)
 			{
 				yield return new ValidationResult("Request quantity should be more than 0.");
 			}
 
-			if (string.IsNullOrEmpty(Message))
+			if (string.IsNullOrEmpty(this.Message))
 			{
-				yield return new ValidationResult($" Property {nameof(Message)} shouldn't be null or empty.");
+				yield return new ValidationResult($" Property {nameof(this.Message)} shouldn't be null or empty.");
 			}
 		}
 	}

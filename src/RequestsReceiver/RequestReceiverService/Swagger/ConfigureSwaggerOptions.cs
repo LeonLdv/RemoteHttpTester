@@ -6,8 +6,6 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace RHT.RequestReceiverService.Swagger
 {
-
-
 	/// <summary>
 	/// Configures the Swagger generation options.
 	/// </summary>
@@ -15,7 +13,7 @@ namespace RHT.RequestReceiverService.Swagger
 	/// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
 	public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 	{
-		readonly IApiVersionDescriptionProvider _provider;
+		private readonly IApiVersionDescriptionProvider _provider;
 
 		/// <summary>
 		/// Initializes a new instance of the <see cref="ConfigureSwaggerOptions"/> class.
@@ -34,13 +32,13 @@ namespace RHT.RequestReceiverService.Swagger
 			}
 		}
 
-		static Info CreateInfoForApiVersion(ApiVersionDescription description)
+		private static Info CreateInfoForApiVersion(ApiVersionDescription description)
 		{
 			var info = new Info()
 			{
 				Title = "RequestReceiverService API",
 				Version = description.ApiVersion.ToString(),
-			    License = new License() { Name = "MIT", Url = "https://opensource.org/licenses/MIT" }
+				License = new License() { Name = "MIT", Url = "https://opensource.org/licenses/MIT" }
 			};
 
 			if (description.IsDeprecated)
