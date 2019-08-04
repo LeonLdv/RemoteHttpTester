@@ -6,13 +6,15 @@ using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Controllers
 {
-	[Route("api/[controller]")]
+
+	[Route("api/v{version:apiVersion}/Request")]
+	[ApiVersion("1.0")]
 	[ApiController]
-	public class RequestController : ControllerBase
+	public class RequestV1Controller : ControllerBase
 	{
 		private readonly IRequestSenderServices _requestSenderServices;
 
-		public RequestController(IRequestSenderServices requestSenderServices)
+		public RequestV1Controller(IRequestSenderServices requestSenderServices)
 		{
 			_requestSenderServices = requestSenderServices;
 		}

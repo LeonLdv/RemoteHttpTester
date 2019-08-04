@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RHT.RequestReceiverService.Common;
@@ -29,31 +30,36 @@ namespace RHT.RequestReceiverService
 			services.AddMvc();
 
 			services.RegisterCommon();
+			services.RegisterSwagger();
 
 			services.RegisterMassTransit(settings);
-
-			services.AddSwaggerGen(c =>
-			{
-				c.SwaggerDoc("v1", new Info { Title = "RequestReceiverService API", Version = "v1" });
-			});
+			
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-		public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider serviceProvider)
+		public void Configure(
+			IApplicationBuilder app,
+			IHostingEnvironment env,
+			IServiceProvider serviceProvider,
+			IApiVersionDescriptionProvider provider)
 		{
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
 			}
+			
+			app.UseMvc();
 
 			app.UseSwagger();
-
-			app.UseSwaggerUI(c =>
-			{
-				c.SwaggerEndpoint("/swagger/v1/swagger.json", "RequestReceiverService API V1");
-			});
-
-			app.UseMvc();
+			app.UseSwaggerUI(
+				options =>
+				{
+					// build a swagger endpoint for each discovered API version
+					foreach (var description in provider.ApiVersionDescriptions)
+					{
+						options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
+					}
+				});
 
 			serviceProvider.StartBusControl();
 		}

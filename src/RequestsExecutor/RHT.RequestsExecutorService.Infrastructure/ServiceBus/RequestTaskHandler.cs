@@ -13,7 +13,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 	internal sealed class RequestTaskHandler : IConsumer<IRequestTaskCommand>
 	{
 		private readonly IListenerExternalApi _listenerExternalApi;
-		private readonly ILogger _logger;
+		private readonly ILogger<RequestTaskHandler> _logger;
 
 		public RequestTaskHandler(IListenerExternalApi listenerExternalApi, ILogger<RequestTaskHandler> logger)
 		{
