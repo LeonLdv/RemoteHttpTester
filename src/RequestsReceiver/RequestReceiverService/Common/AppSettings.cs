@@ -1,4 +1,4 @@
-﻿namespace HRT.RequestReceiverService.Common
+﻿namespace RHT.RequestReceiverService.Common
 {
 	public sealed class AppSettings
 	{

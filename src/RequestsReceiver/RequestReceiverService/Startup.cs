@@ -1,12 +1,12 @@
 ﻿using System;
-using HRT.RequestReceiverService.Common;
+using RHT.RequestReceiverService.Common;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Swashbuckle.AspNetCore.Swagger;
 
-namespace HRT.RequestReceiverService
+namespace RHT.RequestReceiverService
 {
 	public class Startup
 	{

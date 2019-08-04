@@ -1,7 +1,7 @@
-﻿using HRT.RequestsExecutor.Infrastructure;
-using HRT.RequestsExecutor.Infrastructure.Providers;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using RHT.RequestsExecutor.Infrastructure;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 
 
-namespace HRT.RequestsExecutor.HttpProvider.Providers
+namespace RHT.RequestsExecutor.HttpProvider.Providers
 {
 	/// <summary>
 	/// Sending requests to external API by Http

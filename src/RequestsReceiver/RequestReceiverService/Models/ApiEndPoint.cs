@@ -1,4 +1,4 @@
-﻿namespace HRT.RequestReceiverService.Models
+﻿namespace RHT.RequestReceiverService.Models
 {
 	public sealed class ApiEndPoint
 	{

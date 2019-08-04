@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace HRT.RequestReceiverService.Models
+namespace RHT.RequestReceiverService.Models
 {
 	/// <summary>
 	/// Model for settings Request tasks

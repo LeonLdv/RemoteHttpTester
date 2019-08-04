@@ -1,11 +1,11 @@
-﻿using HRT.RequestsExecutor.Infrastructure.ListenerExternal;
-using HRT.RequestsExecutor.Infrastructure.ServiceBus;
+﻿using RHT.RequestsExecutor.Infrastructure.ListenerExternal;
+using RHT.RequestsExecutor.Infrastructure.ServiceBus;
 using MassTransit;
 using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace HRT.RequestsExecutor.Infrastructure
+namespace RHT.RequestsExecutor.Infrastructure
 {
     public static class RegisterServices
     {

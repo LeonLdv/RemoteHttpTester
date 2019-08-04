@@ -1,10 +1,10 @@
 ﻿using System;
-using HRT.RequestReceiverService.Service;
-using HRT.RequestReceiverService.Service.RequestSenderServices;
+using RHT.RequestReceiverService.Service;
+using RHT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace HRT.RequestReceiverService.Common
+namespace RHT.RequestReceiverService.Common
 {
 	public static class RegisterServices
 	{

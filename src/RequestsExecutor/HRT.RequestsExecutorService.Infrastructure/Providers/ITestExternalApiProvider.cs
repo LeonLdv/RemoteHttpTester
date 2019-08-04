@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace HRT.RequestsExecutor.Infrastructure.Providers
+namespace RHT.RequestsExecutor.Infrastructure.Providers
 {
     public interface ITestExternalApiProvider<T>
     {

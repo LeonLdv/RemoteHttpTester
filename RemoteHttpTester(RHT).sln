@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1E77BEEE-779
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsReceiver", "RequestsReceiver", "{3CA4851C-DA23-4063-8E43-AA611E28AD1A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRT.RequestReceiverService", "src\RequestsReceiver\RequestReceiverService\HRT.RequestReceiverService.csproj", "{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestReceiverService", "src\RequestsReceiver\RequestReceiverService\RHT.RequestReceiverService.csproj", "{89A4B8CB-EA3D-4CA0-B39B-34CCA603461D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{006A5FB8-0BBC-4B03-BDAF-72EE324DC45F}"
 EndProject

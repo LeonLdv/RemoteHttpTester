@@ -1,5 +1,5 @@
-﻿using HRT.RequestsExecutor.Infrastructure;
-using HRT.RequestsExecutor.Infrastructure.Providers;
+﻿using RHT.RequestsExecutor.Infrastructure;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace HRT.RequestsExecutor.HttpProvider.Providers
+namespace RHT.RequestsExecutor.HttpProvider.Providers
 {
     public sealed class TestExternalApiHttpProvider : ITestExternalApiProvider<HttpStatusCode>
     {

@@ -1,5 +1,5 @@
 ﻿
-using HRT.RequestsExecutor.Infrastructure.Providers;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using RHT.Shared.Contracts.RequestStatistic;
@@ -12,7 +12,7 @@ using System.Net;
 using System.Threading.Tasks;
 
 
-namespace HRT.RequestsExecutor.Infrastructure.ListenerExternal
+namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
 {
     /// <summary>
     /// Sending a requests to external Api.

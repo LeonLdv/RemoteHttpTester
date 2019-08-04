@@ -2,10 +2,10 @@
 using Microsoft.Extensions.Logging;
 using System;
 using System.Threading.Tasks;
-using HRT.RequestsExecutor.Infrastructure.ListenerExternal;
+using RHT.RequestsExecutor.Infrastructure.ListenerExternal;
 using RHT.Shared.Contracts.RequestTask;
 
-namespace HRT.RequestsExecutor.Infrastructure.ServiceBus
+namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 {
     /// <summary>
     /// Getting tasks and start task executing

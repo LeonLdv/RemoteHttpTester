@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using HRT.RequestReceiverService.Models;
+using RHT.RequestReceiverService.Models;
 
-namespace HRT.RequestReceiverService.Service.RequestSenderServices
+namespace RHT.RequestReceiverService.Service.RequestSenderServices
 {
 	public interface IRequestSenderServices
 	{

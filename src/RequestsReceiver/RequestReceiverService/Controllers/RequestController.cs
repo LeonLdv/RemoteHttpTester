@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using HRT.RequestReceiverService.Common;
-using HRT.RequestReceiverService.Models;
-using HRT.RequestReceiverService.Service.RequestSenderServices;
+using RHT.RequestReceiverService.Common;
+using RHT.RequestReceiverService.Models;
+using RHT.RequestReceiverService.Service.RequestSenderServices;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using RHT.Shared.Contracts.RequestTask;
 
-namespace HRT.RequestReceiverService.Controllers
+namespace RHT.RequestReceiverService.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]

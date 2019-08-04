@@ -1,9 +1,9 @@
-﻿using HRT.RequestsExecutor.HttpProvider.Providers;
-using HRT.RequestsExecutor.Infrastructure.Providers;
+﻿using RHT.RequestsExecutor.HttpProvider.Providers;
+using RHT.RequestsExecutor.Infrastructure.Providers;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
 
-namespace HRT.RequestsExecutor.HttpProvider
+namespace RHT.RequestsExecutor.HttpProvider
 {
     public static class RegisterHttpProviders
     {

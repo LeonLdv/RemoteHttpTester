@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using HRT.RequestReceiverService.Common;
-using HRT.RequestReceiverService.Models;
+using RHT.RequestReceiverService.Common;
+using RHT.RequestReceiverService.Models;
 using MassTransit;
 using Microsoft.Extensions.Options;
 using Contracts = RHT.Shared.Contracts.RequestTask;
 
-namespace HRT.RequestReceiverService.Service.RequestSenderServices
+namespace RHT.RequestReceiverService.Service.RequestSenderServices
 {
 	public sealed class RequestSenderServices : IRequestSenderServices
 	{

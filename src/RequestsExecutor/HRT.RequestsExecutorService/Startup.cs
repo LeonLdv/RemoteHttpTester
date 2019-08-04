@@ -1,5 +1,5 @@
-﻿using HRT.RequestsExecutor.HttpProvider;
-using HRT.RequestsExecutor.Infrastructure;
+﻿using RHT.RequestsExecutor.HttpProvider;
+using RHT.RequestsExecutor.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 
 
-namespace HRT.RequestsExecutorService
+namespace RHT.RequestsExecutorService
 {
     public class Startup
     {
