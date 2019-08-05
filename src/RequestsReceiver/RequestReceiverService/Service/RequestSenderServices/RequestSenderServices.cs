@@ -29,6 +29,7 @@ namespace RHT.RequestReceiverService.Service.RequestSenderServices
 
 			await sendEndpoint.Send(new Contracts.RequestTaskCommand
 			{
+				CorrelationId = Guid.NewGuid(),
 				RequestQuantity = requestTaskModel.RequestQuantity,
 				EndPoints = requestTaskModel.EndPoints.Select(a => new Contracts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),
 				Message = requestTaskModel.Message
