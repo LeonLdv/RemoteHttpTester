@@ -1,9 +1,10 @@
 ﻿using System;
 using MassTransit;
+using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-
+using RHT.StatisticsService.ServiceBus;
 using RHT.StatisticsService.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -13,6 +14,10 @@ namespace RHT.StatisticsService.Common
 	{
 		public static void RegisterCommon(this IServiceCollection services)
 		{
+			services.AddMassTransit(x =>
+			{
+				x.AddConsumer<StatisticHandler>();
+			});
 		}
 
 		public static void RegisterSwagger(this IServiceCollection services)
@@ -52,6 +57,10 @@ namespace RHT.StatisticsService.Common
 							hostConfigurator.Username(settings.ServiceBusConnection.UserName);
 							hostConfigurator.Password(settings.ServiceBusConnection.Password);
 						});
+					configurator.ReceiveEndpoint(rabbitMqHost, settings.ServiceBusQueues.StatisticsService, endpointConfigurator =>
+					{
+						endpointConfigurator.LoadFrom(provider);
+					});
 				}));
 
 			services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());

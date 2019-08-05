@@ -3,29 +3,42 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RHT.RequestsExecutor.Infrastructure;
 using RHT.RequestsExecutor.Infrastructure.Providers;
+using RHT.Shared.Contracts.RequestStatistic;
 
 namespace RHT.RequestsExecutor.HttpProvider.Providers
 {
 	/// <summary>
 	/// Sending requests to external API by Http
 	/// </summary>
-	public sealed class HttpTransportProvider : ITransportProvider<HttpStatusCode>
+	public sealed class HttpTransportProvider : ITransportProvider<RequestStatistic>
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 		private readonly AppSettings _appSettings;
+		private readonly ILogger<HttpTransportProvider> _logger;
 
-		public HttpTransportProvider(IHttpClientFactory httpClientFactory, IOptions<AppSettings> appSettings)
+		public HttpTransportProvider(
+			IHttpClientFactory httpClientFactory,
+			IOptionsSnapshot<AppSettings> appSettings,
+			ILogger<HttpTransportProvider> logger)
 		{
 			_httpClientFactory = httpClientFactory;
 			_appSettings = appSettings.Value;
+			_logger = logger;
 		}
 
-		public async Task<HttpStatusCode> SendRequestExternalApiAsync(string messageBody, string endPointUrl)
+		public async Task<RequestStatistic> SendRequestExternalApiAsync(string messageBody, string endPointUrl)
 		{
+			var requestStatistic = new RequestStatistic
+			{
+				EndPointUrl = endPointUrl,
+				StatusCode = HttpStatusCode.InternalServerError
+			};
+
 			try
 			{
 				Uri path = new Uri(endPointUrl);
@@ -37,13 +50,21 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 					var httpContent = new StringContent(JsonConvert.SerializeObject(messageBody), Encoding.UTF8, "application/json");
 
 					HttpResponseMessage response = await client.PostAsync(path, httpContent);
-					return response.StatusCode;
+
+					requestStatistic.StatusCode = response.StatusCode;
+					requestStatistic.Content = response.Content.ToString();
 				}
 			}
-			catch
+			catch (HttpRequestException e)
 			{
-				return HttpStatusCode.InternalServerError;
+				_logger.LogError(e, $"An exception during sending request to '{endPointUrl}'.");
 			}
+			catch (Exception e)
+			{
+				_logger.LogError(e, $"An unhandled exception occurred during the processing request. EndPointUrl: '{endPointUrl}'.");
+			}
+
+			return requestStatistic;
 		}
 	}
 }

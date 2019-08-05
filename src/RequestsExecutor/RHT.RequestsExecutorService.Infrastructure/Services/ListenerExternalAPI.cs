@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
 using MassTransit;
 using RHT.RequestsExecutor.Infrastructure.Providers;
@@ -15,11 +14,11 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 	/// </summary>
 	public sealed class ListenerExternalApi : IListenerExternalApi
 	{
-		private readonly ITransportProvider<HttpStatusCode> _httpTransport;
+		private readonly ITransportProvider<RequestStatistic> _httpTransport;
 		private readonly IBusControl _serviceBus;
 
 		public ListenerExternalApi(
-			ITransportProvider<HttpStatusCode> testExternalApiProvider,
+			ITransportProvider<RequestStatistic> testExternalApiProvider,
 			IBusControl serviceBus)
 		{
 			_httpTransport = testExternalApiProvider;
@@ -28,24 +27,24 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 
 		public async Task ExecuteRequests(IRequestTaskCommand taskCommand)
 		{
-			var statusCodeList = new List<HttpStatusCode>();
-
 			var random = new Random();
 
-			var statusCodeTasks = new List<Task<HttpStatusCode>>();
+			var tasksRequestsStatistic = new List<Task<RequestStatistic>>(taskCommand.RequestQuantity);
 
 			for (int i = 0; i < taskCommand.RequestQuantity; i++)
 			{
-				var apiEndPointUrl = GetRendomUrl(taskCommand.EndPoints, random);
-				statusCodeTasks.Add(_httpTransport.SendRequestExternalApiAsync(taskCommand.Message, apiEndPointUrl));
+				var endPointUrl = GetRendomUrl(taskCommand.EndPoints, random);
+				tasksRequestsStatistic.Add(_httpTransport.SendRequestExternalApiAsync(taskCommand.Message, endPointUrl));
 			}
 
-			var statusCodes = await Task.WhenAll(statusCodeTasks);
+			IEnumerable<RequestStatistic> requestsStatistic = await Task.WhenAll(tasksRequestsStatistic);
 
-			statusCodeList.AddRange(statusCodes);
-
-			// The event about executing all requests.Passing statistic of requests.
-			await _serviceBus.Publish(new RequestTaskExecutedEvent() { Statistic = GetStatistic(statusCodeList) });
+			// The event of executing all requests. Passing statistic of requests.
+			await _serviceBus.Publish(new RequestTaskExecutedEvent
+			{
+				Statistic = requestsStatistic,
+				CorrelationId = taskCommand.CorrelationId
+			});
 		}
 
 		/// <summary>
@@ -59,22 +58,6 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 			var indexEndPoints = random.Next(0, endPoints.Count());
 
 			return endPoints.ToArray()[indexEndPoints].EndpointUrl;
-		}
-
-		/// <summary>
-		/// Creating requests statistics
-		/// </summary>
-		/// <param name="httpStatusCodes">Status codes</param>
-		/// <returns>TaskStatistic</returns>
-		private IEnumerable<RequestStatistic> GetStatistic(ICollection<HttpStatusCode> httpStatusCodes)
-		{
-			return (from httpStatusCode in httpStatusCodes
-					group httpStatusCode by httpStatusCode into statusCode
-					select new RequestStatistic()
-					{
-						StatusCode = statusCode.Key,
-						StatusCodesQuantity = statusCode.Count()
-					}).AsEnumerable();
 		}
 	}
 }

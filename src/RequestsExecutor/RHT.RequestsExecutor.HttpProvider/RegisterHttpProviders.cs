@@ -1,7 +1,7 @@
-﻿using System.Net;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using RHT.RequestsExecutor.HttpProvider.Providers;
 using RHT.RequestsExecutor.Infrastructure.Providers;
+using RHT.Shared.Contracts.RequestStatistic;
 
 namespace RHT.RequestsExecutor.HttpProvider
 {
@@ -9,7 +9,7 @@ namespace RHT.RequestsExecutor.HttpProvider
 	{
 		public static IServiceCollection RegisterHttpProvider(this IServiceCollection services)
 		{
-			services.AddTransient<ITransportProvider<HttpStatusCode>, HttpTransportProvider>();
+			services.AddTransient<ITransportProvider<RequestStatistic>, HttpTransportProvider>();
 
 			return services;
 		}
