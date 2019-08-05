@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RHT.RequestReceiverService.Models;
-using RHT.RequestReceiverService.Service.RequestSenderServices;
+using RHT.RequestReceiverService.Services;
 using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Controllers
@@ -12,9 +12,9 @@ namespace RHT.RequestReceiverService.Controllers
 	[ApiController]
 	public class RequestV1Controller : ControllerBase
 	{
-		private readonly IRequestSenderServices _requestSenderServices;
+		private readonly IRequestSenderService _requestSenderServices;
 
-		public RequestV1Controller(IRequestSenderServices requestSenderServices)
+		public RequestV1Controller(IRequestSenderService requestSenderServices)
 		{
 			_requestSenderServices = requestSenderServices;
 		}

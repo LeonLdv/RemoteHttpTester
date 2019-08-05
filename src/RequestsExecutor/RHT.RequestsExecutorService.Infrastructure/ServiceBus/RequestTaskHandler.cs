@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Logging;
-using RHT.RequestsExecutor.Infrastructure.ListenerExternal;
+using RHT.RequestsExecutor.Infrastructure.Services;
 using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestsExecutor.Infrastructure.ServiceBus

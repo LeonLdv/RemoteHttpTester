@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using RHT.RequestReceiverService.Models;
 
-namespace RHT.RequestReceiverService.Service.RequestSenderServices
+namespace RHT.RequestReceiverService.Services
 {
-	public interface IRequestSenderServices
+	public interface IRequestSenderService
 	{
 		Task SendRequestTaskCommand(RequestTaskModel requestTaskModel);
 	}

@@ -8,7 +8,7 @@ using RHT.RequestsExecutor.Infrastructure.Providers;
 using RHT.Shared.Contracts.RequestStatistic;
 using RHT.Shared.Contracts.RequestTask;
 
-namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
+namespace RHT.RequestsExecutor.Infrastructure.Services
 {
 	/// <summary>
 	/// Sending a requests to external API.

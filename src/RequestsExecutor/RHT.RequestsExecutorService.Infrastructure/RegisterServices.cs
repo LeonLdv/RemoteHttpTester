@@ -2,8 +2,8 @@
 using MassTransit;
 using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.Extensions.DependencyInjection;
-using RHT.RequestsExecutor.Infrastructure.ListenerExternal;
 using RHT.RequestsExecutor.Infrastructure.ServiceBus;
+using RHT.RequestsExecutor.Infrastructure.Services;
 
 namespace RHT.RequestsExecutor.Infrastructure
 {

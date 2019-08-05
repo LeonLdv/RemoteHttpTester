@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
 using RHT.Shared.Contracts.RequestTask;
 
-namespace RHT.RequestsExecutor.Infrastructure.ListenerExternal
+namespace RHT.RequestsExecutor.Infrastructure.Services
 {
 	internal interface IListenerExternalApi
 	{

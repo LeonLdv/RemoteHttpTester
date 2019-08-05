@@ -3,7 +3,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using RHT.RequestReceiverService.Service.RequestSenderServices;
+using RHT.RequestReceiverService.Services;
 using RHT.RequestReceiverService.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
@@ -13,7 +13,7 @@ namespace RHT.RequestReceiverService.Common
 	{
 		public static void RegisterCommon(this IServiceCollection services)
 		{
-			services.AddScoped<IRequestSenderServices, RequestSenderServices>();
+			services.AddScoped<IRequestSenderService, RequestSenderService>();
 		}
 
 		public static void RegisterSwagger(this IServiceCollection services)

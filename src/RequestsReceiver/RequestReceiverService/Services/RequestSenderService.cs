@@ -7,14 +7,14 @@ using RHT.RequestReceiverService.Common;
 using RHT.RequestReceiverService.Models;
 using Contracts = RHT.Shared.Contracts.RequestTask;
 
-namespace RHT.RequestReceiverService.Service.RequestSenderServices
+namespace RHT.RequestReceiverService.Services
 {
-	public sealed class RequestSenderServices : IRequestSenderServices
+	public sealed class RequestSenderService : IRequestSenderService
 	{
 		private readonly IBusControl _busControl;
 		private readonly AppSettings _appSettings;
 
-		public RequestSenderServices(
+		public RequestSenderService(
 			IBusControl busControl,
 			IOptionsSnapshot<AppSettings> appSettings)
 		{
