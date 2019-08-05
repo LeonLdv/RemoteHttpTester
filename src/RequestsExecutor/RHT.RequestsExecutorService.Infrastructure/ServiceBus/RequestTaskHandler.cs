@@ -27,8 +27,9 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 
 			if (taskCommand == null)
 			{
-				_logger.LogInformation($"Error convert context.Message to {nameof(IRequestTaskCommand)}");
-				throw new NullReferenceException();
+				var exceptionMessage = $"Error convert context.Message to {nameof(IRequestTaskCommand)}";
+				_logger.LogInformation(exceptionMessage);
+				throw new NullReferenceException(exceptionMessage);
 			}
 
 			await _listenerExternalApi.ExecuteRequests(taskCommand);

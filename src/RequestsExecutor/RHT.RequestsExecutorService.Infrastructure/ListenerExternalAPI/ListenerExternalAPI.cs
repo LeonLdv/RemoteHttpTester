@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using MassTransit;
-using Microsoft.Extensions.Logging;
 using RHT.RequestsExecutor.Infrastructure.Providers;
 using RHT.Shared.Contracts.RequestStatistic;
 using RHT.Shared.Contracts.RequestTask;
