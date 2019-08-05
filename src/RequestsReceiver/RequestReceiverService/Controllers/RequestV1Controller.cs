@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RHT.RequestReceiverService.Models;
 using RHT.RequestReceiverService.Service.RequestSenderServices;
@@ -25,6 +26,8 @@ namespace RHT.RequestReceiverService.Controllers
 		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>
 		[HttpPost]
 		[Route("SendRequestTask")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		public async Task<IActionResult> Post([FromBody] RequestTaskModel requestTaskModel)
 		{
 			ValidateModel(requestTaskModel);
