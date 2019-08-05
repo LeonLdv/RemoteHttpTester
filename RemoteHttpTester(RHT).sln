@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solutionItems", "solutionIt
 		solutionItems\CodeAnalysis.ruleset = solutionItems\CodeAnalysis.ruleset
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsStatistic", "RequestsStatistic", "{0B7BD7F7-DFFE-4B2B-82EA-06131AE7674B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,7 @@ Global
 		{AB625E26-6835-448F-B383-796E306B0410} = {40B377C2-7569-405C-9612-CACFC37E6268}
 		{618A3BFB-0E06-4BBE-876C-71D0B5443407} = {40B377C2-7569-405C-9612-CACFC37E6268}
 		{0EC51926-49E1-4F7B-A160-B5B663E69B67} = {40B377C2-7569-405C-9612-CACFC37E6268}
+		{0B7BD7F7-DFFE-4B2B-82EA-06131AE7674B} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4E269A7-C591-42D8-BA6B-2A8428507E74}

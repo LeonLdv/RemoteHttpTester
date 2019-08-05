@@ -28,7 +28,7 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 		{
 			try
 			{
-				Uri path = new Uri($"{endPointUrl}{_appSettings.ExternalApiAction}");
+				Uri path = new Uri(endPointUrl);
 
 				using (HttpClient client = _httpClientFactory.CreateClient())
 				{

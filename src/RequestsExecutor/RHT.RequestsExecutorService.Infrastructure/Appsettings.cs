@@ -4,8 +4,6 @@
 	{
 		public ServiceBusConnect ServiceBusConnection { get; set; }
 
-		public string ExternalApiAction { get; set; }
-
 		public CustomHeaders CustomHeader { get; set; }
 
 		public RabbitMqSetting RabbitMqSettings { get; set; }
