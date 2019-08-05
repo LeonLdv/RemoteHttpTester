@@ -34,7 +34,7 @@ namespace RHT.RequestReceiverService.Controllers
 				return new BadRequestObjectResult(ModelState);
 			}
 
-			await _requestSenderServices.SendReguestTaskCommand(requestTaskModel);
+			await _requestSenderServices.SendRequestTaskCommand(requestTaskModel);
 
 			return Ok($"{nameof(RequestTaskCommand)} has sent successfully.");
 		}

@@ -22,7 +22,7 @@ namespace RHT.RequestReceiverService.Service.RequestSenderServices
 			_appSettings = appSettings.Value;
 		}
 
-		public async Task SendReguestTaskCommand(RequestTaskModel requestTaskModel)
+		public async Task SendRequestTaskCommand(RequestTaskModel requestTaskModel)
 		{
 			var sendEndpoint = await _busControl.GetSendEndpoint(
 								  new Uri($"{_appSettings.ServiceBusConnection.Host}{_appSettings.ServiceBusQueues.RequestsExecutor}"));

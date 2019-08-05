@@ -5,6 +5,6 @@ namespace RHT.RequestReceiverService.Service.RequestSenderServices
 {
 	public interface IRequestSenderServices
 	{
-		Task SendReguestTaskCommand(RequestTaskModel requestTaskModel);
+		Task SendRequestTaskCommand(RequestTaskModel requestTaskModel);
 	}
 }
