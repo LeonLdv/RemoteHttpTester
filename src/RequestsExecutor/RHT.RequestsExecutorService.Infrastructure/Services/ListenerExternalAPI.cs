@@ -45,7 +45,7 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 			statusCodeList.AddRange(statusCodes);
 
 			// The event about executing all requests.Passing statistic of requests.
-			await _serviceBus.Publish(new TaskExecutedEvent() { Statistic = GetStatistic(statusCodeList) });
+			await _serviceBus.Publish(new RequestTaskExecutedEvent() { Statistic = GetStatistic(statusCodeList) });
 		}
 
 		/// <summary>

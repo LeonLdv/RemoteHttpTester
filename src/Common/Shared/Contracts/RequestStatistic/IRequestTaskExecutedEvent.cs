@@ -2,7 +2,7 @@
 
 namespace RHT.Shared.Contracts.RequestStatistic
 {
-	public interface ITaskExecutedEvent
+	public interface IRequestTaskExecutedEvent
 	{
 		IEnumerable<RequestStatistic> Statistic { get; }
 	}

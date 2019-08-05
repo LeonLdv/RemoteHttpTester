@@ -2,7 +2,7 @@
 
 namespace RHT.Shared.Contracts.RequestStatistic
 {
-	public sealed class TaskExecutedEvent : ITaskExecutedEvent
+	public sealed class RequestTaskExecutedEvent : IRequestTaskExecutedEvent
 	{
 		public IEnumerable<RequestStatistic> Statistic { get; set; }
 	}
