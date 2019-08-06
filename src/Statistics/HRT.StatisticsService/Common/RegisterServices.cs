@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Reflection;
 using MassTransit;
 using MassTransit.ExtensionsDependencyInjectionIntegration;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using RHT.StatisticsService.DataAccess;
 using RHT.StatisticsService.ServiceBus;
 using RHT.StatisticsService.Services;
 using RHT.StatisticsService.Swagger;
@@ -14,12 +17,15 @@ namespace RHT.StatisticsService.Common
 {
 	public static class RegisterServices
 	{
-		public static void RegisterCommon(this IServiceCollection services)
+		public static void RegisterCommon(this IServiceCollection services, AppSettings settings)
 		{
 			services.AddMassTransit(x =>
 			{
 				x.AddConsumer<StatisticHandler>();
 			});
+
+			services.AddMediatR(typeof(Startup).GetTypeInfo().Assembly);
+			services.AddSingleton<IStatisticsContext>(a => new StatisticsContext(settings.MongoDbSettings.ConnectionString, settings.MongoDbSettings.Database));
 		}
 
 		public static void RegisterSwagger(this IServiceCollection services)

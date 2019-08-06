@@ -4,6 +4,8 @@
 	{
 		public ServiceBusConnect ServiceBusConnection { get; set; }
 
+		public MongoDbSetting MongoDbSettings { get; set; }
+
 		public ServiceBusQueue ServiceBusQueues { get; set; }
 
 		public sealed class ServiceBusQueue
@@ -18,6 +20,13 @@
 			public string UserName { get; set; }
 
 			public string Password { get; set; }
+		}
+
+		public class MongoDbSetting
+		{
+			public string ConnectionString { get; set; }
+
+			public string Database { get; set; }
 		}
 	}
 }
