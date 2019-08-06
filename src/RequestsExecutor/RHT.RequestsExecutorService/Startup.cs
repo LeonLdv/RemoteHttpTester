@@ -49,8 +49,6 @@ namespace RHT.RequestsExecutorService
 				app.UseDeveloperExceptionPage();
 			}
 
-			serviceProvider.StartBusControl();
-
 			app.UseMvc();
 		}
 	}

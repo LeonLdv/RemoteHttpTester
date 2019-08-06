@@ -2,6 +2,7 @@
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using RHT.RequestReceiverService.Services;
 using RHT.RequestReceiverService.Swagger;
@@ -56,12 +57,7 @@ namespace RHT.RequestReceiverService.Common
 				}));
 
 			services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
-		}
-
-		public static void StartBusControl(this IServiceProvider serviceProvider)//// TO DO Move to here
-		{
-			var serviceBus = serviceProvider.GetRequiredService<IBusControl>();
-			serviceBus.Start();
+			services.AddSingleton<IHostedService, InitializationServiceBus>();
 		}
 	}
 }

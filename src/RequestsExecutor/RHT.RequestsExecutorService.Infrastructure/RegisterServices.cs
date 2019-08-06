@@ -2,6 +2,7 @@
 using MassTransit;
 using MassTransit.ExtensionsDependencyInjectionIntegration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using RHT.RequestsExecutor.Infrastructure.ServiceBus;
 using RHT.RequestsExecutor.Infrastructure.Services;
 
@@ -41,12 +42,7 @@ namespace RHT.RequestsExecutor.Infrastructure
 				}));
 
 			services.AddSingleton<IBus>(provider => provider.GetRequiredService<IBusControl>());
-		}
-
-		public static void StartBusControl(this IServiceProvider serviceProvider)
-		{
-			var serviceBus = serviceProvider.GetRequiredService<IBusControl>();
-			serviceBus.Start();
+			services.AddSingleton<IHostedService, InitializationServiceBus>();
 		}
 	}
 }

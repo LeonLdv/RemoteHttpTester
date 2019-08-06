@@ -58,8 +58,6 @@ namespace RHT.RequestReceiverService
 						options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
 					}
 				});
-
-			serviceProvider.StartBusControl();
 		}
 	}
 }
