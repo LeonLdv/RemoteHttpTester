@@ -11,9 +11,12 @@
     <PackageReference Include="FluentValidation" Version="8.4.0" />
     <PackageReference Include="Fp.MassTransit.RabbitMQ" Version="5.1.7" />
     <PackageReference Include="MassTransit.Extensions.DependencyInjection" Version="5.1.5" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="3.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.8.1" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
@@ -27,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+    <Folder Include="DataAccess\Queries\" />
   </ItemGroup>
 
 </Project>

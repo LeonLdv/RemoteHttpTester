@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
 using MassTransit;
+using MediatR;
 using Microsoft.Extensions.Logging;
 using RHT.Shared.Contracts.RequestStatistic;
+using RHT.StatisticsService.DataAccess.Command;
 
 namespace RHT.StatisticsService.ServiceBus
 {
@@ -12,13 +14,15 @@ namespace RHT.StatisticsService.ServiceBus
 	public sealed class StatisticHandler : IConsumer<IRequestTaskExecutedEvent>
 	{
 		private readonly ILogger _logger;
+		private IMediator _mediator;
 
-		public StatisticHandler(ILogger<StatisticHandler> logger)
+		public StatisticHandler(ILogger<StatisticHandler> logger, IMediator mediator)
 		{
 			_logger = logger;
+			_mediator = mediator;
 		}
 
-		public Task Consume(ConsumeContext<IRequestTaskExecutedEvent> context)
+		public async Task Consume(ConsumeContext<IRequestTaskExecutedEvent> context)
 		{
 			IRequestTaskExecutedEvent taskExecutedEvent = context.Message;
 
@@ -30,7 +34,11 @@ namespace RHT.StatisticsService.ServiceBus
 				throw new NullReferenceException(logMessage);
 			}
 
-			return Task.FromResult(0);
+			var objectId = await _mediator.Send(new CreateStatisticsCommand
+			{
+				CorrelationId = taskExecutedEvent.CorrelationId,
+				Statistics = taskExecutedEvent.Statistic
+			});
 		}
 	}
 }

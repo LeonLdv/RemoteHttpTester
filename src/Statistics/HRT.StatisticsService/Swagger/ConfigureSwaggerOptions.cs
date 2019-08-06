@@ -36,7 +36,7 @@ namespace RHT.StatisticsService.Swagger
 		{
 			var info = new Info()
 			{
-				Title = "RequestReceiverService API",
+				Title = "StatisticsService API",
 				Version = description.ApiVersion.ToString(),
 				License = new License() { Name = "MIT", Url = "https://opensource.org/licenses/MIT" }
 			};

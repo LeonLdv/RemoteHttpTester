@@ -28,7 +28,7 @@ namespace RHT.StatisticsService
 
 			services.AddMvc();
 
-			services.RegisterCommon();
+			services.RegisterCommon(settings);
 			services.RegisterSwagger();
 
 			services.RegisterMassTransit(settings);
