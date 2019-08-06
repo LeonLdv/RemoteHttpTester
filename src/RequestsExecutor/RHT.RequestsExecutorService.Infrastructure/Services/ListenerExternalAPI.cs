@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using MassTransit;
 using RHT.RequestsExecutor.Infrastructure.Providers;
 using RHT.Shared.Contracts.RequestStatistic;
 using RHT.Shared.Contracts.RequestTask;
@@ -15,17 +14,13 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 	public sealed class ListenerExternalApi : IListenerExternalApi
 	{
 		private readonly ITransportProvider<RequestStatistic> _httpTransport;
-		private readonly IBusControl _serviceBus;
 
-		public ListenerExternalApi(
-			ITransportProvider<RequestStatistic> testExternalApiProvider,
-			IBusControl serviceBus)
+		public ListenerExternalApi(ITransportProvider<RequestStatistic> testExternalApiProvider)
 		{
 			_httpTransport = testExternalApiProvider;
-			_serviceBus = serviceBus;
 		}
 
-		public async Task ExecuteRequests(IRequestTaskCommand taskCommand)
+		public async Task<IEnumerable<RequestStatistic>> ExecuteRequests(IRequestTaskCommand taskCommand)
 		{
 			var random = new Random();
 
@@ -37,14 +32,7 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 				tasksRequestsStatistic.Add(_httpTransport.SendRequestExternalApiAsync(taskCommand.Message, endPointUrl));
 			}
 
-			IEnumerable<RequestStatistic> requestsStatistic = await Task.WhenAll(tasksRequestsStatistic);
-
-			// The event of executing all requests. Passing statistic of requests.
-			await _serviceBus.Publish(new RequestTaskExecutedEvent
-			{
-				Statistic = requestsStatistic,
-				CorrelationId = taskCommand.CorrelationId
-			});
+			return await Task.WhenAll(tasksRequestsStatistic);
 		}
 
 		/// <summary>

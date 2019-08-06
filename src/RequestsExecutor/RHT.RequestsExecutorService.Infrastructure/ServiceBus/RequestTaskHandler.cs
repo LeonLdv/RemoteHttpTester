@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Logging;
 using RHT.RequestsExecutor.Infrastructure.Services;
+using RHT.Shared.Contracts.RequestStatistic;
 using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
@@ -14,11 +15,13 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 	{
 		private readonly IListenerExternalApi _listenerExternalApi;
 		private readonly ILogger<RequestTaskHandler> _logger;
+		private readonly IBusControl _serviceBus;
 
-		public RequestTaskHandler(IListenerExternalApi listenerExternalApi, ILogger<RequestTaskHandler> logger)
+		public RequestTaskHandler(IListenerExternalApi listenerExternalApi, ILogger<RequestTaskHandler> logger, IBusControl serviceBus)
 		{
 			_listenerExternalApi = listenerExternalApi;
 			_logger = logger;
+			_serviceBus = serviceBus;
 		}
 
 		public async Task Consume(ConsumeContext<IRequestTaskCommand> context)
@@ -32,9 +35,16 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 				throw new NullReferenceException(exceptionMessage);
 			}
 
-			await _listenerExternalApi.ExecuteRequests(taskCommand);
+			var requestsStatistic = await _listenerExternalApi.ExecuteRequests(taskCommand);
 
-			_logger.LogInformation("RequestTaskCommand command created.");
+			// The event of executing all requests. Passing statistic of requests.
+			await _serviceBus.Publish(new RequestTaskExecutedEvent
+			{
+				Statistic = requestsStatistic,
+				CorrelationId = taskCommand.CorrelationId
+			});
+
+			_logger.LogInformation("RequestTaskCommand command is completed.");
 		}
 	}
 }
