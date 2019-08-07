@@ -6,7 +6,7 @@ using RHT.Shared.Contracts.RequestStatistic;
 
 namespace RHT.StatisticsService.DataAccess.Commands
 {
-	public class CreateStatisticsCommand : IRequest<ObjectId>
+	public sealed class CreateStatisticsCommand : IRequest<ObjectId>
 	{
 		public Guid CorrelationId { get; set; }
 
