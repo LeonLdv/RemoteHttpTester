@@ -4,7 +4,7 @@ using MassTransit;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using RHT.Shared.Contracts.RequestStatistic;
-using RHT.StatisticsService.DataAccess.Command;
+using RHT.StatisticsService.DataAccess.Commands;
 
 namespace RHT.StatisticsService.ServiceBus
 {
@@ -14,7 +14,7 @@ namespace RHT.StatisticsService.ServiceBus
 	public sealed class StatisticHandler : IConsumer<IRequestTaskExecutedEvent>
 	{
 		private readonly ILogger _logger;
-		private IMediator _mediator;
+		private readonly IMediator _mediator;
 
 		public StatisticHandler(ILogger<StatisticHandler> logger, IMediator mediator)
 		{

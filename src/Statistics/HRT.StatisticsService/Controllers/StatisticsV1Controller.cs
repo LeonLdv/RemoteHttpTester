@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using RHT.StatisticsService.Common;
+using RHT.StatisticsService.DataAccess;
 
 namespace RHT.StatisticsService.Controllers
 {
@@ -7,8 +10,13 @@ namespace RHT.StatisticsService.Controllers
 	[ApiController]
 	public class StatisticsV1Controller : ControllerBase
 	{
-		public StatisticsV1Controller()
+		private readonly IOptionsSnapshot<AppSettings> _appSettings;
+		private readonly IStatisticsContext _context;
+
+		public StatisticsV1Controller(IOptionsSnapshot<AppSettings> appSettings, IStatisticsContext context)
 		{
+			_appSettings = appSettings;
+			_context = context;
 		}
 	}
 }

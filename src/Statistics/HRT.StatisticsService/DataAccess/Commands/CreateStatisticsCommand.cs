@@ -4,7 +4,7 @@ using MediatR;
 using MongoDB.Bson;
 using RHT.Shared.Contracts.RequestStatistic;
 
-namespace RHT.StatisticsService.DataAccess.Command
+namespace RHT.StatisticsService.DataAccess.Commands
 {
 	public class CreateStatisticsCommand : IRequest<ObjectId>
 	{
