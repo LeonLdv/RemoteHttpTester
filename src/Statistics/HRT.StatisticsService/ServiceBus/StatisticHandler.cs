@@ -28,17 +28,17 @@ namespace RHT.StatisticsService.ServiceBus
 
 			if (taskExecutedEvent == null)
 			{
-				var logMessage = $"{nameof(taskExecutedEvent)} should not be null.";
-
-				_logger.LogInformation(logMessage);
-				throw new NullReferenceException(logMessage);
+				throw new NullReferenceException($"The {nameof(taskExecutedEvent)} should not be null.");
 			}
 
-			var objectId = await _mediator.Send(new CreateStatisticsCommand
+			var statisticId = await _mediator.Send(new CreateStatisticsCommand
 			{
 				CorrelationId = taskExecutedEvent.CorrelationId,
 				Statistics = taskExecutedEvent.Statistic
 			});
+
+			_logger.LogInformation($"Statistic is created successfully." +
+			                       $" CorrelationId: {taskExecutedEvent.CorrelationId},statisticId:{statisticId}." );
 		}
 	}
 }
