@@ -9,7 +9,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using RHT.StatisticsService.DataAccess;
 using RHT.StatisticsService.ServiceBus;
-using RHT.StatisticsService.Services;
 using RHT.StatisticsService.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
