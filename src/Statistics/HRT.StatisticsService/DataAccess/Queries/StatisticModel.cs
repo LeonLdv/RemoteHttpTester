@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using RHT.Shared.Contracts.RequestStatistic;
+using RHT.Contracts.RequestStatistic;
 
 namespace RHT.StatisticsService.DataAccess.Queries
 {

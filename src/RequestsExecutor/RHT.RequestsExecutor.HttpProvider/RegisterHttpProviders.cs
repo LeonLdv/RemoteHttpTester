@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RHT.Contracts.RequestStatistic;
 using RHT.RequestsExecutor.HttpProvider.Providers;
 using RHT.RequestsExecutor.Infrastructure.Providers;
-using RHT.Shared.Contracts.RequestStatistic;
 
 namespace RHT.RequestsExecutor.HttpProvider
 {

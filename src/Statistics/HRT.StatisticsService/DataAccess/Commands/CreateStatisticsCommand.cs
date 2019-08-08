@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MediatR;
 using MongoDB.Bson;
-using RHT.Shared.Contracts.RequestStatistic;
+using RHT.Contracts.RequestStatistic;
 
 namespace RHT.StatisticsService.DataAccess.Commands
 {

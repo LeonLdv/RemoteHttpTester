@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RHT.Contracts.RequestTask;
 using RHT.RequestReceiverService.Models;
 using RHT.RequestReceiverService.Services;
-using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Controllers
 {

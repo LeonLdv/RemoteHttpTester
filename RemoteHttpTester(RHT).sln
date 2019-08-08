@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.RequestReceiverService"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{006A5FB8-0BBC-4B03-BDAF-72EE324DC45F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.Shared", "src\Common\Shared\RHT.Shared.csproj", "{04782B13-7EE2-4F87-AA3B-C2C6662D4938}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.Contracts", "src\Common\Shared\RHT.Contracts.csproj", "{04782B13-7EE2-4F87-AA3B-C2C6662D4938}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestsExecutor", "RequestsExecutor", "{40B377C2-7569-405C-9612-CACFC37E6268}"
 EndProject

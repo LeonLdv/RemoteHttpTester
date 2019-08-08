@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Common\Shared\RHT.Shared.csproj" />
+    <ProjectReference Include="..\..\Common\Shared\RHT.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

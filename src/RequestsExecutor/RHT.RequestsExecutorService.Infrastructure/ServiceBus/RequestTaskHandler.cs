@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Logging;
+using RHT.Contracts.RequestStatistic;
+using RHT.Contracts.RequestTask;
 using RHT.RequestsExecutor.Infrastructure.Services;
-using RHT.Shared.Contracts.RequestStatistic;
-using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 {

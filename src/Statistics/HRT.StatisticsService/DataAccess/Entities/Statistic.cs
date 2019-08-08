@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using RHT.Shared.Contracts.RequestStatistic;
+using RHT.Contracts.RequestStatistic;
 
 namespace RHT.StatisticsService.DataAccess.Entities
 {

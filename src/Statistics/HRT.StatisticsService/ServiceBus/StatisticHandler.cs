@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using RHT.Shared.Contracts.RequestStatistic;
+using RHT.Contracts.RequestStatistic;
 using RHT.StatisticsService.DataAccess.Commands;
 
 namespace RHT.StatisticsService.ServiceBus

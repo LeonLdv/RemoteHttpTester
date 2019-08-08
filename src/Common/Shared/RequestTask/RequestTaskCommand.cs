@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RHT.Shared.Contracts.RequestTask
+namespace RHT.Contracts.RequestTask
 {
 	public sealed class RequestTaskCommand : IRequestTaskCommand
 	{

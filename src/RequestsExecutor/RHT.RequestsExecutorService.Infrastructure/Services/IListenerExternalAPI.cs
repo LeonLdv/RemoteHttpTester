@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using RHT.Shared.Contracts.RequestStatistic;
-using RHT.Shared.Contracts.RequestTask;
+using RHT.Contracts.RequestStatistic;
+using RHT.Contracts.RequestTask;
 
 namespace RHT.RequestsExecutor.Infrastructure.Services
 {

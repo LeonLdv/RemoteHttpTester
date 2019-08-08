@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
+using RHT.Contracts.RequestStatistic;
 using RHT.RequestsExecutor.Infrastructure;
 using RHT.RequestsExecutor.Infrastructure.Providers;
-using RHT.Shared.Contracts.RequestStatistic;
 
 namespace RHT.RequestsExecutor.HttpProvider.Providers
 {

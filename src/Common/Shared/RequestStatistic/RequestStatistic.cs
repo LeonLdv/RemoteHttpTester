@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace RHT.Shared.Contracts.RequestStatistic
+namespace RHT.Contracts.RequestStatistic
 {
 	public sealed class RequestStatistic
 	{

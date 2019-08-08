@@ -3,9 +3,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Options;
+using RHT.Contracts.RequestTask;
 using RHT.RequestReceiverService.Common;
 using RHT.RequestReceiverService.Models;
-using Contracts = RHT.Shared.Contracts.RequestTask;
+using Contacts = RHT.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Services
 {
@@ -27,11 +28,11 @@ namespace RHT.RequestReceiverService.Services
 			var sendEndpoint = await _busControl.GetSendEndpoint(
 								  new Uri($"{_appSettings.ServiceBusConnection.Host}{_appSettings.ServiceBusQueues.RequestsExecutor}"));
 
-			await sendEndpoint.Send(new Contracts.RequestTaskCommand
+			await sendEndpoint.Send(new RequestTaskCommand
 			{
 				CorrelationId = Guid.NewGuid(),
 				RequestQuantity = requestTaskModel.RequestQuantity,
-				EndPoints = requestTaskModel.EndPoints.Select(a => new Contracts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),
+				EndPoints = requestTaskModel.EndPoints.Select(a => new Contacts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),
 				Message = requestTaskModel.Message
 			});
 		}

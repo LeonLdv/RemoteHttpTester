@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using RHT.Contracts.RequestStatistic;
+using RHT.Contracts.RequestTask;
 using RHT.RequestsExecutor.Infrastructure.Providers;
-using RHT.Shared.Contracts.RequestStatistic;
-using RHT.Shared.Contracts.RequestTask;
 
 namespace RHT.RequestsExecutor.Infrastructure.Services
 {
