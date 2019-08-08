@@ -16,6 +16,6 @@ namespace RHT.StatisticsService.DataAccess
 			_database = new MongoClient(connectionString).GetDatabase(databaseName);
 		}
 
-		public IMongoCollection<Statistic> Statistics => _database.GetCollection<Statistic>(_databaseName);
+		public IMongoCollection<Statistic> Statistics => _database.GetCollection<Statistic>("RequestsStatistic");
 	}
 }
