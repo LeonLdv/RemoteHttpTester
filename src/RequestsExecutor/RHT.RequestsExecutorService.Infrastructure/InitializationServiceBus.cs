@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Hosting;
 
-namespace RHT.StatisticsService.Services
+namespace RHT.RequestsExecutor.Infrastructure
 {
-	public class InitializationServiceBus : IHostedService
+	public sealed class InitializationServiceBus : IHostedService
 	{
 		private readonly IBusControl _busControl;
 
