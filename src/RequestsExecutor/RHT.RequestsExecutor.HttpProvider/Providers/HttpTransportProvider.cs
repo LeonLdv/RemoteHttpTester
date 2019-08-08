@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RHT.Contracts.RequestStatistic;
 using RHT.RequestsExecutor.Infrastructure;
+using RHT.RequestsExecutor.Infrastructure.Common;
 using RHT.RequestsExecutor.Infrastructure.Providers;
 
 namespace RHT.RequestsExecutor.HttpProvider.Providers
@@ -52,7 +54,8 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 					HttpResponseMessage response = await client.PostAsync(path, httpContent);
 
 					requestStatistic.StatusCode = response.StatusCode;
-					requestStatistic.Content = response.Content.ToString();
+
+					requestStatistic.Content = await response.Content.ReadAsStringAsync();
 				}
 			}
 			catch (HttpRequestException e)
