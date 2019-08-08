@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using MassTransit;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using RHT.Contracts.RequestStatistic;
 using RHT.StatisticsService.DataAccess.Commands;
+using RHT.StatisticsService.DataAccess.Commands.Models;
 
 namespace RHT.StatisticsService.ServiceBus
 {
@@ -34,11 +36,16 @@ namespace RHT.StatisticsService.ServiceBus
 			var statisticId = await _mediator.Send(new CreateStatisticsCommand
 			{
 				CorrelationId = taskExecutedEvent.CorrelationId,
-				Statistics = taskExecutedEvent.Statistic
+				Statistics = taskExecutedEvent.Statistic.Select(c => new RequestStatisticModel
+				{
+					Content = c.Content,
+					StatusCode = c.StatusCode,
+					EndPointUrl = c.EndPointUrl
+				}),
 			});
 
 			_logger.LogInformation($"Statistic is created successfully." +
-			                       $" CorrelationId: {taskExecutedEvent.CorrelationId},statisticId:{statisticId}." );
+								   $" CorrelationId: {taskExecutedEvent.CorrelationId},statisticId:{statisticId}.");
 		}
 	}
 }

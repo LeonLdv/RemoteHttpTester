@@ -1,4 +1,5 @@
-﻿using System.Threading;
+﻿using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using MongoDB.Bson;
@@ -20,7 +21,12 @@ namespace RHT.StatisticsService.DataAccess.Commands
 			var statistic = new Statistic
 			{
 				CorrelationId = request.CorrelationId.ToString(),
-				Statistics = request.Statistics
+				Statistics = request.Statistics.Select(x => new RequestStatistic
+				{
+					Content = x.Content,
+					StatusCode = x.StatusCode,
+					EndPointUrl = x.EndPointUrl
+				})
 			};
 
 			await _context.Statistics.InsertOneAsync(statistic, null, cancellationToken);

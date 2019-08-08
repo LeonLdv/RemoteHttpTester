@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using MediatR;
 using MongoDB.Bson;
-using RHT.Contracts.RequestStatistic;
+using RHT.StatisticsService.DataAccess.Commands.Models;
 
 namespace RHT.StatisticsService.DataAccess.Commands
 {
@@ -10,6 +10,6 @@ namespace RHT.StatisticsService.DataAccess.Commands
 	{
 		public Guid CorrelationId { get; set; }
 
-		public IEnumerable<RequestStatistic> Statistics { get; set; }
+		public IEnumerable<RequestStatisticModel> Statistics { get; set; }
 	}
 }

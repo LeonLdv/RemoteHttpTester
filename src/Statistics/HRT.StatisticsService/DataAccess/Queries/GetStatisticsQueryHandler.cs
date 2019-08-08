@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
 using MongoDB.Driver;
+using RHT.StatisticsService.DataAccess.Queries.Models;
 
 namespace RHT.StatisticsService.DataAccess.Queries
 {
@@ -32,7 +33,12 @@ namespace RHT.StatisticsService.DataAccess.Queries
 				.Select(x => new StatisticModel
 				{
 					CorrelationId = x.CorrelationId,
-					Statistics = x.Statistics,
+					Statistics = x.Statistics.Select(c => new RequestStatisticModel
+					{
+						Content = c.Content,
+						StatusCode = c.StatusCode,
+						EndPointUrl = c.EndPointUrl
+					}),
 					Id = x.Id.ToString()
 				}).First();
 		}

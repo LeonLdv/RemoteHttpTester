@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RHT.StatisticsService.DataAccess.Queries;
+using RHT.StatisticsService.DataAccess.Queries.Models;
 
 namespace RHT.StatisticsService.Controllers
 {

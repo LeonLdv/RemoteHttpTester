@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using RHT.Contracts.RequestStatistic;
 
-namespace RHT.StatisticsService.DataAccess.Queries
+namespace RHT.StatisticsService.DataAccess.Queries.Models
 {
 	public sealed class StatisticModel
 	{
@@ -9,6 +8,6 @@ namespace RHT.StatisticsService.DataAccess.Queries
 
 		public string CorrelationId { get; set; }
 
-		public IEnumerable<RequestStatistic> Statistics { get; set; }
+		public IEnumerable<RequestStatisticModel> Statistics { get; set; }
 	}
 }
