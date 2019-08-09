@@ -25,7 +25,7 @@ namespace RHT.StatisticsService.DataAccess.Queries
 			}
 
 			var statistics = await _context.Statistics.FindAsync(
-				request.CorrelationId.ToString(),
+				x => x.CorrelationId == request.CorrelationId.ToString(),
 				null,
 				cancellationToken);
 
@@ -40,7 +40,7 @@ namespace RHT.StatisticsService.DataAccess.Queries
 						EndPointUrl = c.EndPointUrl
 					}),
 					Id = x.Id.ToString()
-				}).First();
+				}).FirstOrDefault();
 		}
 	}
 }

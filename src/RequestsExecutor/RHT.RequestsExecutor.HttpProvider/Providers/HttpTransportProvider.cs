@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
 using System.Text;
@@ -8,7 +7,6 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RHT.Contracts.RequestStatistic;
-using RHT.RequestsExecutor.Infrastructure;
 using RHT.RequestsExecutor.Infrastructure.Common;
 using RHT.RequestsExecutor.Infrastructure.Providers;
 

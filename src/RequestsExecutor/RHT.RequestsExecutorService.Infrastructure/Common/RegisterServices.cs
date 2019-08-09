@@ -6,7 +6,7 @@ using Microsoft.Extensions.Hosting;
 using RHT.RequestsExecutor.Infrastructure.ServiceBus;
 using RHT.RequestsExecutor.Infrastructure.Services;
 
-namespace RHT.RequestsExecutor.Infrastructure
+namespace RHT.RequestsExecutor.Infrastructure.Common
 {
 	public static class RegisterServices
 	{

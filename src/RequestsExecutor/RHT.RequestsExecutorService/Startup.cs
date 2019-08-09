@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RHT.RequestsExecutor.HttpProvider;
-using RHT.RequestsExecutor.Infrastructure;
+using RHT.RequestsExecutor.Infrastructure.Common;
 
 namespace RHT.RequestsExecutorService
 {

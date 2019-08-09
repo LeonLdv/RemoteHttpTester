@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using MassTransit;
 using Microsoft.Extensions.Hosting;
 
-namespace RHT.RequestsExecutor.Infrastructure
+namespace RHT.RequestsExecutor.Infrastructure.Common
 {
 	public sealed class InitializationServiceBus : IHostedService
 	{

@@ -1,4 +1,4 @@
-﻿namespace RHT.RequestsExecutor.Infrastructure
+﻿namespace RHT.RequestsExecutor.Infrastructure.Common
 {
 	public sealed class AppSettings
 	{

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Options;
 using RHT.Contracts.RequestTask;
 using RHT.RequestReceiverService.Common;
 using RHT.RequestReceiverService.Models;
+
 using Contacts = RHT.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Services
