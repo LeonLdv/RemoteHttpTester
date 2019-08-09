@@ -9,15 +9,18 @@ using RHT.RequestsExecutor.Infrastructure.Services;
 namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 {
 	/// <summary>
-	/// Getting tasks and start task executing
+	/// RequestsExecutor queue listener. Consumer  <see cref="IRequestTaskCommand"/>
 	/// </summary>
 	internal sealed class RequestTaskHandler : IConsumer<IRequestTaskCommand>
 	{
-		private readonly IListenerExternalApi _listenerExternalApi;
+		private readonly IRequestsStatisticService _listenerExternalApi;
 		private readonly ILogger<RequestTaskHandler> _logger;
 		private readonly IBusControl _serviceBus;
 
-		public RequestTaskHandler(IListenerExternalApi listenerExternalApi, ILogger<RequestTaskHandler> logger, IBusControl serviceBus)
+		public RequestTaskHandler(
+			IRequestsStatisticService listenerExternalApi,
+			ILogger<RequestTaskHandler> logger,
+			IBusControl serviceBus)
 		{
 			_listenerExternalApi = listenerExternalApi;
 			_logger = logger;
@@ -35,7 +38,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 				throw new NullReferenceException(exceptionMessage);
 			}
 
-			var requestsStatistic = await _listenerExternalApi.ExecuteRequests(taskCommand);
+			var requestsStatistic = await _listenerExternalApi.GetRequestsStatistic(taskCommand);
 
 			// The event of executing all requests. Passing statistic of requests.
 			await _serviceBus.Publish(new RequestTaskExecutedEvent

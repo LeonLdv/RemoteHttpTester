@@ -5,6 +5,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace RHT.StatisticsService.Common
 {
+	/// <summary>
+	/// Represent Initialization service bus.
+	/// </summary>
 	public class InitializationServiceBus : IHostedService
 	{
 		private readonly IBusControl _busControl;

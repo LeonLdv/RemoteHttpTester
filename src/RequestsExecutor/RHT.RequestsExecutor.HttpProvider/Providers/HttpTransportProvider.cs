@@ -13,7 +13,7 @@ using RHT.RequestsExecutor.Infrastructure.Providers;
 namespace RHT.RequestsExecutor.HttpProvider.Providers
 {
 	/// <summary>
-	/// Sending requests to external API by Http
+	/// Represent sending requests to external API by using Http
 	/// </summary>
 	public sealed class HttpTransportProvider : ITransportProvider<RequestStatistic>
 	{
@@ -31,6 +31,12 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 			_logger = logger;
 		}
 
+		/// <summary>
+		/// Send request to external API
+		/// </summary>
+		/// <param name="messageBody"> Message to external API </param>
+		/// <param name="endPointUrl"> API Url </param>
+		/// <returns> Request statistic </returns>
 		public async Task<RequestStatistic> SendRequestExternalApiAsync(string messageBody, string endPointUrl)
 		{
 			var requestStatistic = new RequestStatistic

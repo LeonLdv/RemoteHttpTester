@@ -9,18 +9,23 @@ using RHT.RequestsExecutor.Infrastructure.Providers;
 namespace RHT.RequestsExecutor.Infrastructure.Services
 {
 	/// <summary>
-	/// Sending a requests to external API.
+	/// Represent requests statistic
 	/// </summary>
-	public sealed class ListenerExternalApi : IListenerExternalApi
+	public sealed class RequestsStatisticService : IRequestsStatisticService
 	{
 		private readonly ITransportProvider<RequestStatistic> _httpTransport;
 
-		public ListenerExternalApi(ITransportProvider<RequestStatistic> testExternalApiProvider)
+		public RequestsStatisticService(ITransportProvider<RequestStatistic> testExternalApiProvider)
 		{
 			_httpTransport = testExternalApiProvider;
 		}
 
-		public async Task<IEnumerable<RequestStatistic>> ExecuteRequests(IRequestTaskCommand taskCommand)
+		/// <summary>
+		/// Getting requests statistic
+		/// </summary>
+		/// <param name="taskCommand"> Request's description </param>
+		/// <returns>Requests statistic</returns>
+		public async Task<IEnumerable<RequestStatistic>> GetRequestsStatistic(IRequestTaskCommand taskCommand)
 		{
 			var random = new Random();
 

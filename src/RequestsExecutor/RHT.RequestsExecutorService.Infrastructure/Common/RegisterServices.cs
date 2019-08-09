@@ -12,7 +12,7 @@ namespace RHT.RequestsExecutor.Infrastructure.Common
 	{
 		public static IServiceCollection RegisterAppServices(this IServiceCollection services)
 		{
-			services.AddTransient<IListenerExternalApi, ListenerExternalApi>();
+			services.AddTransient<IRequestsStatisticService, RequestsStatisticService>();
 
 			return services;
 		}

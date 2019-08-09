@@ -11,6 +11,9 @@ using Contacts = RHT.Contracts.RequestTask;
 
 namespace RHT.RequestReceiverService.Services
 {
+	/// <summary>
+	/// Represent sending a request to a service bus
+	/// </summary>
 	public sealed class RequestSenderService : IRequestSenderService
 	{
 		private readonly IBusControl _busControl;
@@ -24,6 +27,11 @@ namespace RHT.RequestReceiverService.Services
 			_appSettings = appSettings.Value;
 		}
 
+		/// <summary>
+		/// Sending the <see cref="RequestTaskCommand"/> to sending to a service bus.
+		/// </summary>
+		/// <param name="requestTaskModel"> <see cref="RequestTaskModel"/> Represents requests parameters </param>
+		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>
 		public async Task SendRequestTaskCommand(RequestTaskModel requestTaskModel)
 		{
 			var sendEndpoint = await _busControl.GetSendEndpoint(

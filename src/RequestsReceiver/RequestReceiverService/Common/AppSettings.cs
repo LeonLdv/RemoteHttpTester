@@ -1,5 +1,8 @@
 ﻿namespace RHT.RequestReceiverService.Common
 {
+	/// <summary>
+	/// Application settings
+	/// </summary>
 	public sealed class AppSettings
 	{
 		public ServiceBusConnect ServiceBusConnection { get; set; }

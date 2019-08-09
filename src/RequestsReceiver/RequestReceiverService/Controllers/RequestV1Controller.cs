@@ -20,12 +20,11 @@ namespace RHT.RequestReceiverService.Controllers
 		}
 
 		/// <summary>
-		/// Sending the task to the queue service bus.
+		/// Receiving the<see cref= "RequestTaskModel" /> to sending requests.
 		/// </summary>
-		/// <param name="requestTaskModel"> Requests model</param>
+		/// <param name="requestTaskModel"> <see cref="RequestTaskModel"/> Represents requests parameters </param>
 		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>
 		[HttpPost]
-		[Route("SendRequestTask")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		public async Task<IActionResult> Post([FromBody] RequestTaskModel requestTaskModel)
