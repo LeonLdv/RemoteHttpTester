@@ -20,10 +20,9 @@ namespace RHT.RequestReceiverService.Controllers
 		}
 
 		/// <summary>
-		/// Receiving the<see cref= "RequestTaskModel" /> to sending requests.
+		/// Sending <see cref= "RequestTaskModel" /> to service bus.
 		/// </summary>
-		/// <param name="requestTaskModel"> <see cref="RequestTaskModel"/> Represents requests parameters </param>
-		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>
+		/// <param name="requestTaskModel"> <see cref="RequestTaskModel"/>  Requests parameters </param>
 		[HttpPost]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]

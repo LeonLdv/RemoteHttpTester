@@ -9,7 +9,7 @@ namespace RHT.RequestReceiverService.Services
 	public interface IRequestSenderService
 	{
 		/// <summary>
-		/// Sending the <see cref="RequestTaskCommand"/> to sending to a service bus.
+		/// Sending  <see cref="RequestTaskCommand"/>  to a service bus.
 		/// </summary>
 		/// <param name="requestTaskModel"> <see cref="RequestTaskModel"/> Represents requests parameters </param>
 		/// <returns> <see cref="Task"/> representing the asynchronous operation.</returns>

@@ -19,12 +19,11 @@ namespace RHT.StatisticsService.Controllers
 			_mediator = mediator;
 		}
 
-
 		/// <summary>
-		/// 
+		/// Getting statistical information about requests
 		/// </summary>
-		/// <param name="correlationId"></param>
-		/// <returns></returns>
+		/// <param name="correlationId">Unique identifier value that is attached to requests and messages
+		/// that allow reference to a particular transaction or event chain.</param>
 		[HttpGet]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
