@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.StatisticsService", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RHT.Contracts", "src\Common\Contacts\RHT.Contracts.csproj", "{8F5329B6-A036-4AC9-9F73-24FC0A2C647E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHT.Common", "RHT.Common\RHT.Common.csproj", "{45B3BA0A-B359-403A-9E95-A29774DA6CB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,6 +62,10 @@ Global
 		{8F5329B6-A036-4AC9-9F73-24FC0A2C647E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5329B6-A036-4AC9-9F73-24FC0A2C647E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5329B6-A036-4AC9-9F73-24FC0A2C647E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45B3BA0A-B359-403A-9E95-A29774DA6CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B3BA0A-B359-403A-9E95-A29774DA6CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B3BA0A-B359-403A-9E95-A29774DA6CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B3BA0A-B359-403A-9E95-A29774DA6CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{0B7BD7F7-DFFE-4B2B-82EA-06131AE7674B} = {1E77BEEE-7797-4B99-B6B5-57959D5F74D2}
 		{C795830B-711D-4FD3-B14A-C7418993A827} = {0B7BD7F7-DFFE-4B2B-82EA-06131AE7674B}
 		{8F5329B6-A036-4AC9-9F73-24FC0A2C647E} = {006A5FB8-0BBC-4B03-BDAF-72EE324DC45F}
+		{45B3BA0A-B359-403A-9E95-A29774DA6CB4} = {006A5FB8-0BBC-4B03-BDAF-72EE324DC45F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E4E269A7-C591-42D8-BA6B-2A8428507E74}
