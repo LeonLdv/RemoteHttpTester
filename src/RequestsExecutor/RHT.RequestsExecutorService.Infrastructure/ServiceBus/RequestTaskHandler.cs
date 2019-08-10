@@ -13,16 +13,16 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 	/// </summary>
 	internal sealed class RequestTaskHandler : IConsumer<IRequestTaskCommand>
 	{
-		private readonly IRequestsStatisticService _listenerExternalApi;
+		private readonly IRequestsStatisticService _requestsStatisticService;
 		private readonly ILogger<RequestTaskHandler> _logger;
 		private readonly IBusControl _serviceBus;
 
 		public RequestTaskHandler(
-			IRequestsStatisticService listenerExternalApi,
+			IRequestsStatisticService requestsStatisticService,
 			ILogger<RequestTaskHandler> logger,
 			IBusControl serviceBus)
 		{
-			_listenerExternalApi = listenerExternalApi;
+			_requestsStatisticService = requestsStatisticService;
 			_logger = logger;
 			_serviceBus = serviceBus;
 		}
@@ -38,7 +38,7 @@ namespace RHT.RequestsExecutor.Infrastructure.ServiceBus
 				throw new NullReferenceException(exceptionMessage);
 			}
 
-			var requestsStatistic = await _listenerExternalApi.GetRequestsStatistic(taskCommand);
+			var requestsStatistic = await _requestsStatisticService.GetRequestsStatistic(taskCommand);
 
 			// The event of executing all requests. Passing statistic of requests.
 			await _serviceBus.Publish(new RequestTaskExecutedEvent
