@@ -15,5 +15,5 @@ saves statistic request data to MongoDB, provides get statistics by REST. The se
 
 Each of the services is used simple architecture since services logic is simple and services is tiny. 
 
-**In progress:** Unit and integration tests, containerization, clusterization, logging exceptions via middleware, authentification and so on. 
+**In progress:** unit and integration tests, containerization, clusterization, logging exceptions via middleware, authentification and so on. 
 
