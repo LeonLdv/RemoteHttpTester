@@ -1,0 +1,1 @@
+Architecture by using the service bus RabbitMq(Masstransit), Web API Rest, CQRS and NoSql (MongoDB).
