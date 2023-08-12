@@ -8,7 +8,7 @@ namespace RHT.StatisticsService.Common
 	/// <summary>
 	/// Represent Initialization service bus.
 	/// </summary>
-	public class InitializationServiceBus : IHostedService
+	internal class InitializationServiceBus : IHostedService
 	{
 		private readonly IBusControl _busControl;
 

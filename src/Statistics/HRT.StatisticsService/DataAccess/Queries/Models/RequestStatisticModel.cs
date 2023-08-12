@@ -2,7 +2,7 @@
 
 namespace RHT.StatisticsService.DataAccess.Queries.Models
 {
-	public class RequestStatisticModel
+	internal class RequestStatisticModel
 	{
 		public HttpStatusCode StatusCode { get; set; }
 

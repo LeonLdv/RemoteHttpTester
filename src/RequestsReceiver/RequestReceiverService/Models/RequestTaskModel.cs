@@ -7,7 +7,7 @@ namespace RHT.RequestReceiverService.Models
 	/// <summary>
 	/// Model for settings Request tasks
 	/// </summary>
-	public sealed class RequestTaskModel : IValidatableObject
+	internal sealed class RequestTaskModel : IValidatableObject
 	{
 		/// <summary>
 		/// Gets or sets quantity requests to external Api
@@ -26,12 +26,12 @@ namespace RHT.RequestReceiverService.Models
 
 		public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
 		{
-			if (!this.EndPoints.Any())
+			if (!EndPoints.Any())
 			{
 				yield return new ValidationResult("Your order must contain at least one item.");
 			}
 
-			if (this.RequestQuantity == 0)
+			if (RequestQuantity == 0)
 			{
 				yield return new ValidationResult("Request quantity should be more than 0.");
 			}

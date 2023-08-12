@@ -4,7 +4,7 @@ using RHT.StatisticsService.DataAccess.Entities;
 
 namespace RHT.StatisticsService.DataAccess
 {
-	public sealed class StatisticsContext : IStatisticsContext
+	internal sealed class StatisticsContext : IStatisticsContext
 	{
 		private readonly string _databaseName;
 		private readonly IMongoDatabase _database;

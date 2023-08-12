@@ -10,7 +10,7 @@ namespace RHT.StatisticsService.Controllers
 	[Route("api/v{version:apiVersion}/statistics")]
 	[ApiVersion("1.0")]
 	[ApiController]
-	public class StatisticsV1Controller : ControllerBase
+	internal class StatisticsV1Controller : ControllerBase
 	{
 		private readonly IMediator _mediator;
 

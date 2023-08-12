@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Represent external API
 	/// </summary>
-	public sealed class ApiEndPoint
+	internal sealed class ApiEndPoint
 	{
 		public string EndpointUrl { get; set; }
 	}

@@ -8,7 +8,7 @@ using RHT.StatisticsService.DataAccess.Queries.Models;
 
 namespace RHT.StatisticsService.DataAccess.Queries
 {
-	public sealed class GetStatisticsQueryHandler : IRequestHandler<GetStatisticsQuery, StatisticModel>
+	internal sealed class GetStatisticsQueryHandler : IRequestHandler<GetStatisticsQuery, StatisticModel>
 	{
 		private readonly IStatisticsContext _context;
 

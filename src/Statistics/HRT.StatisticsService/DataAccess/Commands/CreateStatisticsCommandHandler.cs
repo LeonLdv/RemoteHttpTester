@@ -7,7 +7,7 @@ using RHT.StatisticsService.DataAccess.Entities;
 
 namespace RHT.StatisticsService.DataAccess.Commands
 {
-	public sealed class CreateStatisticsCommandHandler : IRequestHandler<CreateStatisticsCommand, ObjectId>
+	internal sealed class CreateStatisticsCommandHandler : IRequestHandler<CreateStatisticsCommand, ObjectId>
 	{
 		private readonly IStatisticsContext _context;
 

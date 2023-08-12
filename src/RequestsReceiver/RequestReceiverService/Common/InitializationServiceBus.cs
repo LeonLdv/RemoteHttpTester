@@ -8,7 +8,7 @@ namespace RHT.RequestReceiverService.Common
 	/// <summary>
 	/// Represent Initialization service bus.
 	/// </summary>
-	public sealed class InitializationServiceBus : IHostedService
+	internal sealed class InitializationServiceBus : IHostedService
 	{
 		private readonly IBusControl _busControl;
 

@@ -3,7 +3,7 @@ using RHT.StatisticsService.DataAccess.Entities;
 
 namespace RHT.StatisticsService.DataAccess
 {
-	public interface IStatisticsContext
+	internal interface IStatisticsContext
 	{
 		IMongoCollection<Statistic> Statistics { get; }
 	}

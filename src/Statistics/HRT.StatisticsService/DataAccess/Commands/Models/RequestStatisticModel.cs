@@ -2,7 +2,7 @@
 
 namespace RHT.StatisticsService.DataAccess.Commands.Models
 {
-	public sealed class RequestStatisticModel
+	internal sealed class RequestStatisticModel
 	{
 		public HttpStatusCode StatusCode { get; set; }
 

@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace RHT.RequestsExecutor.Infrastructure.Common
 {
-	public sealed class InitializationServiceBus : IHostedService
+	internal sealed class InitializationServiceBus : IHostedService
 	{
 		private readonly IBusControl _busControl;
 

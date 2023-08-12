@@ -8,7 +8,7 @@ using RHT.RequestsExecutor.Infrastructure.Common;
 
 namespace RHT.RequestsExecutorService
 {
-	public class Startup
+	internal class Startup
 	{
 		public Startup(IHostingEnvironment env)
 		{

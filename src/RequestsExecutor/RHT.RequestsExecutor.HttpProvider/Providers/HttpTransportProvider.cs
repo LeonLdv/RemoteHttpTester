@@ -15,7 +15,7 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 	/// <summary>
 	/// Represent sending requests to external API by using Http
 	/// </summary>
-	public sealed class HttpTransportProvider : ITransportProvider<RequestStatistic>
+	internal sealed class HttpTransportProvider : ITransportProvider<RequestStatistic>
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
 		private readonly AppSettings _appSettings;
@@ -65,10 +65,12 @@ namespace RHT.RequestsExecutor.HttpProvider.Providers
 			catch (HttpRequestException e)
 			{
 				_logger.LogError(e, $"An exception during sending request to '{endPointUrl}'.");
+				throw;
 			}
 			catch (Exception e)
 			{
 				_logger.LogError(e, $"An unhandled exception occurred during the processing request. EndPointUrl: '{endPointUrl}'.");
+				throw;
 			}
 
 			return requestStatistic;

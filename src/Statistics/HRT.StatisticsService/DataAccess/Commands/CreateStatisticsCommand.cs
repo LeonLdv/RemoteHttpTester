@@ -9,7 +9,7 @@ namespace RHT.StatisticsService.DataAccess.Commands
 	/// <summary>
 	/// Represent creating requests statistic information.
 	/// </summary>
-	public sealed class CreateStatisticsCommand : IRequest<ObjectId>
+	internal sealed class CreateStatisticsCommand : IRequest<ObjectId>
 	{
 		/// <summary>
 		/// Gets or sets unique identifier value that is attached to requests and messages

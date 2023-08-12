@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace RHT.StatisticsService.DataAccess.Entities
 {
-	public sealed class Statistic
+	internal sealed class Statistic
 	{
 		[BsonId]
 		public ObjectId Id { get; set; }

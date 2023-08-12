@@ -10,7 +10,7 @@ namespace RHT.RequestReceiverService.Controllers
 	[Route("api/v{version:apiVersion}/Request")]
 	[ApiVersion("1.0")]
 	[ApiController]
-	public class RequestV1Controller : ControllerBase
+	internal class RequestV1Controller : ControllerBase
 	{
 		private readonly IRequestSenderService _requestSenderServices;
 
@@ -28,7 +28,7 @@ namespace RHT.RequestReceiverService.Controllers
 		[ProducesResponseType(StatusCodes.Status400BadRequest)]
 		public async Task<IActionResult> Post([FromBody] RequestTaskModel requestTaskModel)
 		{
-			ValidateModel(requestTaskModel);
+			 ValidateModel(requestTaskModel);
 
 			if (!ModelState.IsValid)
 			{

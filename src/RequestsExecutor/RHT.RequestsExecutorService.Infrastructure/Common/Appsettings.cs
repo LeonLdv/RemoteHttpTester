@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Application settings
 	/// </summary>
-	public sealed class AppSettings
+	 public sealed class AppSettings
 	{
 		public ServiceBusConnect ServiceBusConnection { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace RHT.StatisticsService.DataAccess.Queries.Models
 {
-	public sealed class StatisticModel
+	internal sealed class StatisticModel
 	{
 		public string Id { get; set; }
 

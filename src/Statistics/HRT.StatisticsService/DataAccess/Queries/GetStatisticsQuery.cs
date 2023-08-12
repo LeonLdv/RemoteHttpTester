@@ -6,7 +6,7 @@ namespace RHT.StatisticsService.DataAccess.Queries
 	/// <summary>
 	/// Represent statistical information of requests.
 	/// </summary>
-	public sealed class GetStatisticsQuery : IRequest<StatisticModel>
+	internal sealed class GetStatisticsQuery : IRequest<StatisticModel>
 	{
 		/// <summary>
 		/// Gets or sets unique identifier value that is attached to requests and messages

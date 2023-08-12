@@ -6,7 +6,7 @@ namespace RHT.RequestReceiverService.Services
 	/// <summary>
 	/// Represent sending a request to a service bus
 	/// </summary>
-	public interface IRequestSenderService
+	internal interface IRequestSenderService
 	{
 		/// <summary>
 		/// Sending  <see cref="RequestTaskCommand"/>  to a service bus.

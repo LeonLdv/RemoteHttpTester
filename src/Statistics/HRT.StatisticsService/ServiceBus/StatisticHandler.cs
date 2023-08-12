@@ -13,7 +13,7 @@ namespace RHT.StatisticsService.ServiceBus
 	/// <summary>
 	/// Handling event IRequestTaskExecutedEvent.
 	/// </summary>
-	public sealed class StatisticHandler : IConsumer<IRequestTaskExecutedEvent>
+	internal sealed class StatisticHandler : IConsumer<IRequestTaskExecutedEvent>
 	{
 		private readonly ILogger _logger;
 		private readonly IMediator _mediator;

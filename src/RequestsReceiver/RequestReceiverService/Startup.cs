@@ -8,7 +8,7 @@ using RHT.RequestReceiverService.Common;
 
 namespace RHT.RequestReceiverService
 {
-	public class Startup
+	internal class Startup
 	{
 		public Startup(IConfiguration configuration)
 		{

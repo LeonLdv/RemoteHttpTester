@@ -14,7 +14,7 @@ namespace RHT.RequestReceiverService.Services
 	/// <summary>
 	/// Represent sending a request to a service bus
 	/// </summary>
-	public sealed class RequestSenderService : IRequestSenderService
+	internal sealed class RequestSenderService : IRequestSenderService
 	{
 		private readonly IBusControl _busControl;
 		private readonly AppSettings _appSettings;
@@ -42,7 +42,7 @@ namespace RHT.RequestReceiverService.Services
 				CorrelationId = Guid.NewGuid(),
 				RequestQuantity = requestTaskModel.RequestQuantity,
 				EndPoints = requestTaskModel.EndPoints.Select(a => new Contacts.ApiEndPoint { EndpointUrl = a.EndpointUrl }),
-				Message = requestTaskModel.Message
+				Message = requestTaskModel.Message,
 			});
 		}
 	}

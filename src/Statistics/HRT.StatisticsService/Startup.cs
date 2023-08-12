@@ -8,7 +8,7 @@ using RHT.StatisticsService.Common;
 
 namespace RHT.StatisticsService
 {
-	public class Startup
+	internal class Startup
 	{
 		public Startup(IConfiguration configuration)
 		{

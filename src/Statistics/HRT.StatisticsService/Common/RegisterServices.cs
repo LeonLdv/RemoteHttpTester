@@ -14,7 +14,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace RHT.StatisticsService.Common
 {
-	public static class RegisterServices
+	internal static class RegisterServices
 	{
 		public static void RegisterCommon(this IServiceCollection services, AppSettings settings)
 		{

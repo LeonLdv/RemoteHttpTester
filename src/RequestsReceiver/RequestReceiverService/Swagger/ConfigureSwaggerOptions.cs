@@ -11,7 +11,7 @@ namespace RHT.RequestReceiverService.Swagger
 	/// </summary>
 	/// <remarks>This allows API versioning to define a Swagger document per API version after the
 	/// <see cref="IApiVersionDescriptionProvider"/> service has been resolved from the service container.</remarks>
-	public class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
+	internal class ConfigureSwaggerOptions : IConfigureOptions<SwaggerGenOptions>
 	{
 		private readonly IApiVersionDescriptionProvider _provider;
 

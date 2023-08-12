@@ -2,7 +2,7 @@
 
 namespace RHT.StatisticsService.DataAccess.Entities
 {
-	public sealed class RequestStatistic
+	internal sealed class RequestStatistic
 	{
 		public HttpStatusCode StatusCode { get; set; }
 

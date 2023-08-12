@@ -11,7 +11,7 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 	/// <summary>
 	/// Represent requests statistic
 	/// </summary>
-	public sealed class RequestsStatisticService : IRequestsStatisticService
+	internal sealed class RequestsStatisticService : IRequestsStatisticService
 	{
 		private readonly ITransportProvider<RequestStatistic> _httpTransport;
 
@@ -33,7 +33,7 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 
 			for (int i = 0; i < taskCommand.RequestQuantity; i++)
 			{
-				var endPointUrl = GetRendomUrl(taskCommand.EndPoints, random);
+				var endPointUrl = GetRandomUrl(taskCommand.EndPoints, random);
 				tasksRequestsStatistic.Add(_httpTransport.SendRequestExternalApiAsync(taskCommand.Message, endPointUrl));
 			}
 
@@ -45,8 +45,8 @@ namespace RHT.RequestsExecutor.Infrastructure.Services
 		/// </summary>
 		/// <param name="endPoints">Url endpoints</param>
 		/// <param name="random">Random</param>
-		/// <returns>Rendom URL </returns>
-		private string GetRendomUrl(IEnumerable<ApiEndPoint> endPoints, Random random)
+		/// <returns>Random URL </returns>
+		private string GetRandomUrl(IEnumerable<ApiEndPoint> endPoints, Random random)
 		{
 			var indexEndPoints = random.Next(0, endPoints.Count());
 

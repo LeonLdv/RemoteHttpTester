@@ -7,6 +7,6 @@ namespace RHT.Contracts.RequestStatistic
 	{
 		public Guid CorrelationId { get; set; }
 
-		public IEnumerable<RHT.Contracts.RequestStatistic.RequestStatistic> Statistic { get; set; }
+		public IEnumerable<RequestStatistic> Statistic { get; set; }
 	}
 }
